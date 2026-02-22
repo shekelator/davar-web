@@ -4,7 +4,10 @@ A clean, data-driven reading schedule website for the Tanakh and New Testament. 
 
 ## Getting started
 
+This project uses [fnm](https://github.com/Schniz/fnm) for Node version management. A `.node-version` file is included.
+
 ```bash
+fnm use           # Switch to the correct Node version
 npm install
 npm run dev       # Start local dev server at http://localhost:5173
 ```
@@ -12,6 +15,7 @@ npm run dev       # Start local dev server at http://localhost:5173
 ## Commands
 
 ```bash
+fnm use           # Switch to the correct Node version (see .node-version)
 npm run dev       # Local dev server with HMR
 npm run build     # Production build → dist/
 npm run preview   # Preview production build locally
