@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Header } from './components/Header'
 import { TodayPage } from './pages/TodayPage'
+import { ParashaPage } from './pages/ParashaPage'
 
 export function App() {
   return (
@@ -9,6 +10,7 @@ export function App() {
         <Header />
         <Routes>
           <Route path="/" element={<TodayPage />} />
+          <Route path="/parasha/:slug" element={<ParashaPage />} />
         </Routes>
       </div>
     </BrowserRouter>

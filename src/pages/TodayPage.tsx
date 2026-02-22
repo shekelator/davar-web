@@ -1,17 +1,27 @@
-import { getTodayReading, todayKey, formatDate } from '../utils/schedule'
+import { Link } from 'react-router-dom'
+import { getTodayReading, todayKey, formatDate, getParashaWeekForDate } from '../utils/schedule'
 import { DayCard } from '../components/DayCard'
 
 export function TodayPage() {
   const today = todayKey()
   const reading = getTodayReading()
+  const week = getParashaWeekForDate(today)
 
   return (
     <main className="max-w-2xl mx-auto px-4 py-8">
       {reading ? (
         <>
-          <p className="text-center text-sm text-stone-400 mb-6 tracking-wide">
-            Today's readings
-          </p>
+          {week && (
+            <div className="flex items-center justify-between mb-5">
+              <p className="text-sm text-stone-400">Today's reading</p>
+              <Link
+                to={`/parasha/${week.slug}`}
+                className="text-sm text-amber-700 hover:text-amber-900 transition-colors"
+              >
+                Week of {week.name} →
+              </Link>
+            </div>
+          )}
           <DayCard day={reading} />
         </>
       ) : (
