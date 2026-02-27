@@ -12,13 +12,13 @@ export function TodayPage() {
       {reading ? (
         <>
           {week && (
-            <div className="flex items-center justify-between mb-5">
-              <p className="text-sm text-stone-400">Today's reading</p>
+            <div className="flex flex-col gap-1 mb-5">
+              <p className="text-sm text-stone-400 font-medium">Today's reading</p>
               <Link
                 to={`/parasha/${week.slug}`}
-                className="text-sm text-amber-700 hover:text-amber-900 transition-colors"
+                className="text-2xl font-semibold text-stone-800 hover:text-amber-700 transition-colors self-start"
               >
-                Week of {week.name} →
+                Parashat {week.name} <span className="text-stone-300 text-lg align-middle" aria-hidden>→</span>
               </Link>
             </div>
           )}
