@@ -18,7 +18,7 @@ export function TodayPage() {
                 to={`/parasha/${week.slug}`}
                 className="text-2xl font-semibold text-stone-800 hover:text-amber-700 transition-colors self-start"
               >
-                Parashat {week.name} <span className="text-stone-300 text-lg align-middle" aria-hidden>→</span>
+                Parashat {week.name}
               </Link>
             </div>
           )}
