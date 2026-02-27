@@ -1,11 +1,27 @@
 export function Header() {
   return (
-    <header className="bg-stone-900 text-amber-50 px-6 py-4 shadow-md">
-      <div className="max-w-2xl mx-auto flex items-center gap-3">
-        <span className="text-2xl select-none" aria-hidden>✡</span>
+    <header className="relative bg-stone-900 text-amber-50 shadow-md overflow-hidden h-32 md:h-40">
+      {/* Background Banner */}
+      <img 
+        src="/header-banner.png" 
+        alt="" 
+        className="absolute inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-overlay"
+      />
+      
+      {/* Content Overlay */}
+      <div className="relative h-full max-w-2xl mx-auto px-6 flex items-center gap-5 z-10">
+        <img 
+          src="/davar-logo.png" 
+          alt="Daily Davar Logo" 
+          className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-md"
+        />
         <div>
-          <h1 className="text-xl font-semibold tracking-wide">Daily Davar</h1>
-          <p className="text-xs text-amber-200/70 tracking-widest uppercase">דבר יומי</p>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-wide text-white drop-shadow-sm font-serif">
+            Daily Davar
+          </h1>
+          <p className="text-sm md:text-base text-amber-100/90 tracking-widest uppercase mt-0.5 font-medium drop-shadow-sm">
+            דבר יומי
+          </p>
         </div>
       </div>
     </header>
