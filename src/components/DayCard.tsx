@@ -2,6 +2,7 @@ import { type DayReading } from '../data/schedule'
 import { formatDate } from '../utils/schedule'
 import { ReadingSection } from './ReadingSection'
 import { ListenAllButton } from './ListenAllButton'
+import { ReadAllButton } from './ReadAllButton'
 
 interface DayCardProps {
   day: DayReading
@@ -20,7 +21,10 @@ export function DayCard({ day }: DayCardProps) {
             </p>
           )}
         </div>
-        <ListenAllButton readings={day.readings} />
+        <div className="flex gap-2">
+          <ReadAllButton readings={day.readings} />
+          <ListenAllButton readings={day.readings} />
+        </div>
       </div>
 
       {/* Readings */}

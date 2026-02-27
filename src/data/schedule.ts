@@ -61,6 +61,27 @@ export function getListenAllUrl(readings: { torah: Reading, tanakh?: Reading, nt
   return `https://www.biblegateway.com/audio/purevoice/niv/${parts.join(',')}`
 }
 
+/**
+ * Generates a "Read all" URL for a set of readings (TLV version).
+ * Example: https://www.biblegateway.com/passage/?search=Exodus%2029%3A38-46%2C%20Psalm%20103%2C%20Acts%2011&version=TLV
+ */
+export function getReadAllUrl(readings: { torah: Reading, tanakh?: Reading, nt: Reading }): string {
+  const parts = [readings.torah, readings.tanakh, readings.nt]
+    .filter((r): r is Reading => !!r)
+    .map(r => r.label)
+  
+  const search = encodeURIComponent(parts.join(', '))
+  return `https://www.biblegateway.com/passage/?search=${search}&version=TLV`
+}
+
+/**
+ * Generates a "Read" URL for a single reading (TLV version).
+ */
+export function getReadUrl(reading: Reading): string {
+  const search = encodeURIComponent(reading.label)
+  return `https://www.biblegateway.com/passage/?search=${search}&version=TLV`
+}
+
 export const schedule: DayReading[] = [
   ...schedule5786,
 ]

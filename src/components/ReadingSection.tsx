@@ -1,4 +1,4 @@
-import { type Reading } from '../data/schedule'
+import { type Reading, getReadUrl } from '../data/schedule'
 import { AudioLink } from './AudioLink'
 
 interface ReadingSectionProps {
@@ -17,7 +17,16 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
           {subtitle && (
             <span className="ml-2 text-xs text-stone-400 italic">{subtitle}</span>
           )}
-          <p className="mt-1 text-lg font-medium text-stone-800">{reading.label}</p>
+          <p className="mt-1 text-lg font-medium text-stone-800 hover:text-stone-900">
+            <a 
+              href={getReadUrl(reading)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline decoration-stone-300 underline-offset-4 decoration-2"
+            >
+              {reading.label}
+            </a>
+          </p>
         </div>
         {reading.audioUrl && (
           <AudioLink url={reading.audioUrl} label={reading.label} />
