@@ -9,6 +9,17 @@ export function todayKey(): string {
   return `${yyyy}-${mm}-${dd}`
 }
 
+export function formatDate(dateStr: string): string {
+  const [y, m, d] = dateStr.split('-').map(Number)
+  const date = new Date(y, m - 1, d)
+  return new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric'
+  }).format(date)
+}
+
 /** Returns the reading for a given YYYY-MM-DD date, or null if not found. */
 export function getReading(date: string): DayReading | null {
   return schedule.find((r) => r.date === date) ?? null
@@ -47,12 +58,11 @@ export function getPrevNextWeeks(slug: string): { prev: ParashaWeek | null; next
 }
 
 /** Formats a YYYY-MM-DD string to a human-readable date. */
-export function formatDate(dateStr: string): string {
-  const [year, month, day] = dateStr.split('-').map(Number)
-  return new Date(year, month - 1, day).toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
+export function getPrevNextReadings(date: string): { prev: DayReading | null, next: DayReading | null } {
+  const idx = schedule.findIndex((r) => r.date === date)
+  if (idx === -1) return { prev: null, next: null }
+  return {
+    prev: idx > 0 ? schedule[idx - 1] : null,
+    next: idx < schedule.length - 1 ? schedule[idx + 1] : null,
+  }
 }

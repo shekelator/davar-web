@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export function Header() {
   return (
     <header className="relative bg-stone-900 text-amber-50 shadow-md overflow-hidden h-32 md:h-40">
@@ -10,7 +12,7 @@ export function Header() {
       
       {/* Content Overlay */}
       <div className="relative h-full px-4 md:px-8 flex items-center z-10">
-        <div className="flex items-center gap-4 md:gap-6">
+        <Link to="/" className="flex items-center gap-4 md:gap-6 hover:opacity-95 transition-opacity">
           <img 
             src="/davar-logo.png" 
             alt="Daily Davar Logo" 
@@ -24,7 +26,7 @@ export function Header() {
               דבר יומי
             </p>
           </div>
-        </div>
+        </Link>
       </div>
     </header>
   )

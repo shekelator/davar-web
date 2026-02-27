@@ -12,6 +12,8 @@ import { schedule5786 } from './schedule-5786'
  * will link to the full chapter.
  */
 
+export type ReadingType = 'torah' | 'tanakh' | 'nt'
+
 export interface Reading {
   label: string        // e.g. "Genesis 1:1–2:3"
   book: string         // e.g. "Genesis"
@@ -80,6 +82,22 @@ export function getReadAllUrl(readings: { torah: Reading, tanakh?: Reading, nt: 
 export function getReadUrl(reading: Reading): string {
   const search = encodeURIComponent(reading.label)
   return `https://www.biblegateway.com/passage/?search=${search}&version=TLV`
+}
+
+/**
+ * Generates a "Commentary" URL for a reading (Sefaria or Luchot).
+ */
+export function getCommentaryUrl(reading: Reading, type: ReadingType): string {
+  if (type === 'nt') {
+    return `https://delitzsch.luchot.org/texts/${reading.label}`
+  }
+  
+  const ref = reading.label
+    .replace(/–/g, '-')
+    .replace(/:/g, '.')
+    .replace(/ /g, '.')
+  
+  return `https://www.sefaria.org/${ref}?lang=bi&with=all&lang2=en`
 }
 
 export const schedule: DayReading[] = [
