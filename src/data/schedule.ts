@@ -17,7 +17,7 @@ export interface Reading {
   book: string         // e.g. "Genesis"
   chapter: number      // primary chapter (for audio link)
   verses?: string      // e.g. "1-2:3" (optional, for display)
-  audioUrl?: string    // BibleGateway chapter audio URL
+  audioUrl?: string    // BibleGateway audio URL (chapter or multi-chapter)
 }
 
 export interface DayReading {
@@ -37,6 +37,28 @@ export interface ParashaWeek {
   name: string       // Display name, e.g. "Vayakhel-Pekudei"
   startDate: string  // YYYY-MM-DD (Sunday)
   endDate: string    // YYYY-MM-DD (Saturday)
+}
+
+/**
+ * Generates a "Listen to all" URL for a set of readings.
+ * Example: https://www.biblegateway.com/audio/purevoice/niv/Exod.6,Ps.66,Luke.22
+ */
+export function getListenAllUrl(readings: { torah: Reading, tanakh?: Reading, nt: Reading }): string {
+  const parts = [readings.torah, readings.tanakh, readings.nt]
+    .filter((r): r is Reading => !!r)
+    .map(r => {
+      // Extract book abbreviation and chapter from the individual URL if possible,
+      // or reconstruct it. Since we don't export the abbreviation map, we'll
+      // parse the audioUrl which we know is constructed as `.../niv/Abbr.Chapter`
+      if (r.audioUrl) {
+        const match = r.audioUrl.match(/\/niv\/([^/]+)$/)
+        if (match) return match[1]
+      }
+      return ''
+    })
+    .filter(Boolean)
+  
+  return `https://www.biblegateway.com/audio/purevoice/niv/${parts.join(',')}`
 }
 
 export const schedule: DayReading[] = [
@@ -65,5 +87,3 @@ export const parashaWeeks: ParashaWeek[] = uniqueSlugs.map(slug => {
     endDate: days[days.length - 1].date
   }
 }).filter((w): w is ParashaWeek => w !== null)
-
-
