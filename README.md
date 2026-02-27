@@ -30,6 +30,9 @@ Build output in `dist/` is a fully static site intended for S3 + CloudFront. Sin
 
 ## TODO
 
-- [ ] Populate the full year's reading schedule (pull Torah portions from the [hebcal.com API](https://hebcal.com) and pair with NT readings)
+- [x] Populate the full year's reading schedule (imported from CSV)
+- [x] Add weekly navigation (Parashat HaShavua)
+- [x] Add "Listen All" and "Read All" buttons with BibleGateway integration
+- [x] Update header with logo and banner image
 - [ ] Add a date-picker / browse-by-date page so visitors can look up past and future readings
 - [ ] CloudFront deployment config (S3 bucket + CloudFront distribution via CDK, Terraform, or a deploy script)
