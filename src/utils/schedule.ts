@@ -60,9 +60,23 @@ export function getPrevNextWeeks(slug: string): { prev: ParashaWeek | null; next
 /** Formats a YYYY-MM-DD string to a human-readable date. */
 export function getPrevNextReadings(date: string): { prev: DayReading | null, next: DayReading | null } {
   const idx = schedule.findIndex((r) => r.date === date)
-  if (idx === -1) return { prev: null, next: null }
+  if (idx === -1) {
+    // If not found (e.g. Saturday), find the next reading after this date
+    const nextIdx = schedule.findIndex((r) => r.date > date)
+    const prevIdx = nextIdx > 0 ? nextIdx - 1 : schedule.length - 1
+    
+    return {
+      prev: prevIdx >= 0 ? schedule[prevIdx] : null,
+      next: nextIdx !== -1 ? schedule[nextIdx] : null,
+    }
+  }
   return {
     prev: idx > 0 ? schedule[idx - 1] : null,
     next: idx < schedule.length - 1 ? schedule[idx + 1] : null,
   }
+}
+
+/** Returns the first reading after the given date. */
+export function getNextReadingAfterDate(date: string): DayReading | null {
+  return schedule.find((r) => r.date > date) ?? null
 }
