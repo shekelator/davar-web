@@ -93,9 +93,9 @@ export function getCommentaryUrl(reading: Reading, type: ReadingType): string {
   }
   
   const ref = reading.label
-    .replace(/–/g, '-')
+    .replace(/\s*[–-]\s*/g, '-')
     .replace(/:/g, '.')
-    .replace(/ /g, '.')
+    .replace(/ /g, '_')
   
   return `https://www.sefaria.org/${ref}?lang=bi&with=all&lang2=en`
 }

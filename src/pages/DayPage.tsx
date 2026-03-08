@@ -29,12 +29,20 @@ export function DayPage() {
           {week && (
             <div className="flex flex-col gap-1 mb-5">
               <p className="text-sm text-stone-400 font-medium">{params.date ? 'Daily reading' : "Today's reading"}</p>
-              <Link
-                to={`/parasha/${week.slug}`}
-                className="text-2xl font-semibold text-stone-800 hover:text-amber-700 transition-colors self-start"
-              >
-                Parashat {week.name}
-              </Link>
+              <div className="flex items-baseline gap-3 flex-wrap">
+                <Link
+                  to={`/parasha/${week.slug}`}
+                  className="text-2xl font-semibold text-stone-800 hover:text-amber-700 transition-colors"
+                >
+                  Parashat {week.name}
+                </Link>
+                <Link 
+                  to={`/parasha/${week.slug}`}
+                  className="text-sm text-stone-500 hover:text-amber-700 hover:underline transition-colors"
+                >
+                  See full week of readings here &rarr;
+                </Link>
+              </div>
             </div>
           )}
           <DayCard 

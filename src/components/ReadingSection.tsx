@@ -1,6 +1,7 @@
 import { type Reading, getReadUrl, getCommentaryUrl, type ReadingType } from '../data/schedule'
 import { AudioLink } from './AudioLink'
 import { CommentaryLink } from './CommentaryLink'
+import { ReadLink } from './ReadLink'
 
 interface ReadingSectionProps {
   title?: string
@@ -33,6 +34,7 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
           </p>
         </div>
         <div className="flex gap-3 shrink-0">
+          <ReadLink url={getReadUrl(reading)} />
           <CommentaryLink url={getCommentaryUrl(reading, type)} />
           {reading.audioUrl && (
             <AudioLink url={reading.audioUrl} label={reading.label} />
