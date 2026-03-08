@@ -24,15 +24,17 @@ npm run test -- --reporter=verbose src/utils/schedule.test.ts  # Run a single te
 npm run lint      # ESLint
 ```
 
+## Updating the Schedule
+
+The reading schedule is generated from a CSV file. To update the schedule:
+
+1.  Place the new CSV file in the project root: `daily-davar-schedule-5786.csv` (ensure filename matches script expectation).
+2.  Run the generation script:
+    ```bash
+    npm run generate
+    ```
+3.  Commit the updated data file: `src/data/schedule-5786.ts`.
+
 ## Deployment
 
 Build output in `dist/` is a fully static site intended for S3 + CloudFront. Since the app uses client-side routing, configure CloudFront to return `index.html` for all 404/403 responses.
-
-## TODO
-
-- [x] Populate the full year's reading schedule (imported from CSV)
-- [x] Add weekly navigation (Parashat HaShavua)
-- [x] Add "Listen All" and "Read All" buttons with BibleGateway integration
-- [x] Update header with logo and banner image
-- [ ] Add a date-picker / browse-by-date page so visitors can look up past and future readings
-- [ ] CloudFront deployment config (S3 bucket + CloudFront distribution via CDK, Terraform, or a deploy script)

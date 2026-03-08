@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
+    "generate": "tsx scripts/transform-csv.ts",
     "lint": "eslint ."
   },
   "dependencies": {

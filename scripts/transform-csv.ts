@@ -169,28 +169,30 @@ function parseCSV() {
 
     // Construct the object string for the TS file
     // We intentionally quote keys/values to produce valid JS/TS
+    const escapeSingle = (s: string) => s.replace(/'/g, "\\'")
+    
     const dayObj = `{
     date: '${date}',
-    parashaSlug: '${currentParashaSlug}',
-    ${isParashaStart ? `torahPortion: '${currentParashaName}',` : ''}
+    parashaSlug: '${escapeSingle(currentParashaSlug)}',
+    ${isParashaStart ? `torahPortion: '${escapeSingle(currentParashaName)}',` : ''}
     readings: {
       torah: { 
         label: "${torah?.label.replace(/"/g, '\\"')}", 
         book: "${torah?.book}", 
         chapter: ${torah?.chapter || 1}, 
-        audioUrl: bgAudio("${torah?.book}", ${torah?.chapter || 1}) 
+        audioUrl: "${bgAudio(torah?.book || '', torah?.chapter || 1)}" 
       },
       ${haftarah && haftarah.book ? `tanakh: { 
         label: "${haftarah.label.replace(/"/g, '\\"')}", 
         book: "${haftarah.book}", 
         chapter: ${haftarah.chapter || 1}, 
-        audioUrl: bgAudio("${haftarah.book}", ${haftarah.chapter || 1}) 
+        audioUrl: "${bgAudio(haftarah.book, haftarah.chapter || 1)}" 
       },` : ''}
       nt: { 
         label: "${nt?.label.replace(/"/g, '\\"')}", 
         book: "${nt?.book}", 
         chapter: ${nt?.chapter || 1}, 
-        audioUrl: bgAudio("${nt?.book}", ${nt?.chapter || 1}) 
+        audioUrl: "${bgAudio(nt?.book || '', nt?.chapter || 1)}" 
       },
     },
   }`
