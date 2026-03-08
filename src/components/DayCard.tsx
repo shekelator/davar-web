@@ -6,7 +6,7 @@ import { ListenAllButton } from './ListenAllButton'
 import { ReadAllButton } from './ReadAllButton'
 import { CopyReadingsButton } from './CopyReadingsButton'
 
-interface DayCardProps {
+export interface DayCardProps {
   day: DayReading
   prevLink?: string
   nextLink?: string
