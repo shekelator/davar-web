@@ -11,7 +11,7 @@ interface CopyReadingsButtonProps {
   date: string
 }
 
-export function CopyReadingsButton({ readings, date }: CopyReadingsButtonProps) {
+export function CopyReadingsButton({ readings }: CopyReadingsButtonProps) {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
@@ -22,7 +22,6 @@ export function CopyReadingsButton({ readings, date }: CopyReadingsButtonProps) 
       readings.nt.label
     ].filter(Boolean).join(', ')
     
-    // const url = `${APP_CONFIG.baseUrl}/date/${date}`
     const url = `${APP_CONFIG.baseUrl}`
     const text = `${APP_CONFIG.copyMessageIntro}${parts}. Read or listen here: ${url}`
 
