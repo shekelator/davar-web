@@ -22,7 +22,8 @@ export function CopyReadingsButton({ readings, date }: CopyReadingsButtonProps) 
       readings.nt.label
     ].filter(Boolean).join(', ')
     
-    const url = `${APP_CONFIG.baseUrl}/date/${date}`
+    // const url = `${APP_CONFIG.baseUrl}/date/${date}`
+    const url = `${APP_CONFIG.baseUrl}`
     const text = `${APP_CONFIG.copyMessageIntro}${parts}. Read or listen here: ${url}`
 
     try {
