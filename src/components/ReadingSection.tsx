@@ -20,8 +20,8 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
 
   return (
     <div className={`border-l-4 ${accentColor} pl-4 py-1`}>
-      <div className="flex items-center justify-between gap-4 flex-wrap">
-        <div className="flex items-center gap-3">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex items-start gap-3 min-w-0">
           <span 
             className="w-16 text-right shrink-0 text-2xl font-bold text-stone-300 select-none leading-none pt-1" 
             style={{ fontFamily: '"Frank Ruhl Libre", serif' }}
@@ -29,14 +29,14 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
           >
             {hebrewLabel}
           </span>
-          <div>
+          <div className="min-w-0">
             {title && (
               <span className="text-xs font-semibold tracking-widest uppercase text-stone-400">{title}</span>
             )}
             {subtitle && (
               <span className="ml-2 text-xs text-stone-400 italic">{subtitle}</span>
             )}
-            <p className={`${title ? 'mt-1' : ''} text-lg font-medium text-stone-800 hover:text-stone-900`}>
+            <p className={`${title ? 'mt-1' : ''} text-lg font-medium text-stone-800 hover:text-stone-900 break-words`}>
               <a 
                 href={getReadUrl(reading)}
                 target="_blank"
@@ -48,7 +48,7 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
             </p>
           </div>
         </div>
-        <div className="flex gap-3 shrink-0">
+        <div className="flex gap-3 shrink-0 pt-1">
           <ReadLink url={getReadUrl(reading)} />
           <CommentaryLink url={getCommentaryUrl(reading, type)} />
           {reading.audioUrl && (
