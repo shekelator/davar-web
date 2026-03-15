@@ -3310,7 +3310,7 @@ export const schedule5786: DayReading[] = [
         label: "Lev. 1:1-2:6", 
         book: "Lev", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/lev.1" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.1" 
       },
       tanakh: { 
         label: "Jeremiah 1", 
