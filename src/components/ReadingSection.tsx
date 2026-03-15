@@ -29,7 +29,7 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
           >
             {hebrewLabel}
           </span>
-          <div className="min-w-0">
+          <div className="min-w-[12rem]">
             {title && (
               <span className="text-xs font-semibold tracking-widest uppercase text-stone-400">{title}</span>
             )}
