@@ -3132,7 +3132,7 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Exodus 34:10-26.  MAF: Numbers 19:1-22", 
+        label: "Exodus 34:10-26.  ; Numbers 19:1-22", 
         book: "Exodus", 
         chapter: 34, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.34" 
@@ -3282,7 +3282,7 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Exodus 39:22-43  MAF: Exodus 12:1-20", 
+        label: "Exodus 39:22-43  ; Exodus 12:1-20", 
         book: "Exodus", 
         chapter: 39, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.39" 

@@ -133,7 +133,7 @@ function parseCSV() {
 
     // Remove surrounding quotes if CSV parser left them
     const stripQuotes = (s: string) => s.replace(/^"|"$/g, '').trim()
-    const torahRaw = stripQuotes(cols[1] || '')
+    const torahRaw = stripQuotes(cols[1] || '').replace(/MAF:/g, ';')
     const haftarahRaw = stripQuotes(cols[2] || '')
     const ntRaw = stripQuotes(cols[3] || '')
 
