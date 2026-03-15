@@ -3332,7 +3332,7 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Leviticus 2:7-2:16:", 
+        label: "Leviticus 2:7-2:16", 
         book: "Leviticus", 
         chapter: 2, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.2" 
