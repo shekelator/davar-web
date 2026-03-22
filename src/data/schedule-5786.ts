@@ -3782,10 +3782,10 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Leviticus 9;24-10:11", 
+        label: "Leviticus 9:24-10:11", 
         book: "Leviticus", 
         chapter: 9, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.10" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.9,Lev.10" 
       },
       tanakh: { 
         label: "Jeremiah 19", 
