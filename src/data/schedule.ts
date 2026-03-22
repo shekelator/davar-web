@@ -15,51 +15,6 @@ import { schedule5786 } from './schedule-5786'
 import { type Reading, type ReadingType, type DayReading, type ParashaWeek } from './types'
 export * from './types'
 
-const SINGLE_CHAPTER_BOOKS = new Set([
-  'Obadiah', 'Philemon', 'Jude', '2 John', '3 John'
-])
-
-function getChapters(reading: Reading): number[] {
-  if (!reading.label) return [reading.chapter]
-  if (SINGLE_CHAPTER_BOOKS.has(reading.book)) return [reading.chapter]
-
-  const label = reading.label
-  const chapters = new Set<number>()
-
-  // Pattern 1: Colons indicate verses, so numbers preceding them are chapters
-  // e.g. "Gen 1:1-2:3" -> captures "1" and "2"
-  const colonMatches = label.matchAll(/(\d+):/g)
-  let foundColons = false
-  for (const match of colonMatches) {
-    foundColons = true
-    chapters.add(parseInt(match[1], 10))
-  }
-
-  if (foundColons) {
-    return Array.from(chapters).sort((a, b) => a - b)
-  }
-
-  // Pattern 2: Range of chapters (e.g. "Joshua 1-2")
-  // Extract the reference part (assumes it ends with numbers/dash)
-  const match = label.match(/(\d+[\d\-\s]*)$/)
-  if (match) {
-    const ref = match[1]
-    const rangeMatch = ref.match(/^(\d+)\s*-\s*(\d+)$/)
-    if (rangeMatch) {
-      const start = parseInt(rangeMatch[1], 10)
-      const end = parseInt(rangeMatch[2], 10)
-      // Sanity check: range shouldn't be too huge to avoid infinite loops on bad data
-      if (end >= start && end - start < 150) {
-        const result = []
-        for (let i = start; i <= end; i++) result.push(i)
-        return result
-      }
-    }
-  }
-
-  return [reading.chapter]
-}
-
 /**
  * Generates a "Listen to all" URL for a set of readings.
  * Example: https://www.biblegateway.com/audio/purevoice/niv/Exod.6,Ps.66,Luke.22
