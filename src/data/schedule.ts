@@ -12,33 +12,52 @@ import { schedule5786 } from './schedule-5786'
  * will link to the full chapter.
  */
 
-export type ReadingType = 'torah' | 'tanakh' | 'nt'
+import { type Reading, type ReadingType, type DayReading, type ParashaWeek } from './types'
+export * from './types'
 
-export interface Reading {
-  label: string        // e.g. "Genesis 1:1–2:3"
-  book: string         // e.g. "Genesis"
-  chapter: number      // primary chapter (for audio link)
-  verses?: string      // e.g. "1-2:3" (optional, for display)
-  audioUrl?: string    // BibleGateway audio URL (chapter or multi-chapter)
-}
+const SINGLE_CHAPTER_BOOKS = new Set([
+  'Obadiah', 'Philemon', 'Jude', '2 John', '3 John'
+])
 
-export interface DayReading {
-  date: string         // YYYY-MM-DD
-  parashaSlug: string  // links this day to its parasha week
-  torahPortion?: string // parasha name, set only on Shabbat (Saturday)
-  readings: {
-    torah: Reading
-    tanakh?: Reading   // Haftarah reading (Prophets / Writings), set on Shabbat
-    nt: Reading
+function getChapters(reading: Reading): number[] {
+  if (!reading.label) return [reading.chapter]
+  if (SINGLE_CHAPTER_BOOKS.has(reading.book)) return [reading.chapter]
+
+  const label = reading.label
+  const chapters = new Set<number>()
+
+  // Pattern 1: Colons indicate verses, so numbers preceding them are chapters
+  // e.g. "Gen 1:1-2:3" -> captures "1" and "2"
+  const colonMatches = label.matchAll(/(\d+):/g)
+  let foundColons = false
+  for (const match of colonMatches) {
+    foundColons = true
+    chapters.add(parseInt(match[1], 10))
   }
-}
 
-/** Metadata for a parasha week (Sunday–Saturday). */
-export interface ParashaWeek {
-  slug: string       // URL-safe identifier, e.g. "vayakhel-pekudei"
-  name: string       // Display name, e.g. "Vayakhel-Pekudei"
-  startDate: string  // YYYY-MM-DD (Sunday)
-  endDate: string    // YYYY-MM-DD (Saturday)
+  if (foundColons) {
+    return Array.from(chapters).sort((a, b) => a - b)
+  }
+
+  // Pattern 2: Range of chapters (e.g. "Joshua 1-2")
+  // Extract the reference part (assumes it ends with numbers/dash)
+  const match = label.match(/(\d+[\d\-\s]*)$/)
+  if (match) {
+    const ref = match[1]
+    const rangeMatch = ref.match(/^(\d+)\s*-\s*(\d+)$/)
+    if (rangeMatch) {
+      const start = parseInt(rangeMatch[1], 10)
+      const end = parseInt(rangeMatch[2], 10)
+      // Sanity check: range shouldn't be too huge to avoid infinite loops on bad data
+      if (end >= start && end - start < 150) {
+        const result = []
+        for (let i = start; i <= end; i++) result.push(i)
+        return result
+      }
+    }
+  }
+
+  return [reading.chapter]
 }
 
 /**
@@ -48,15 +67,18 @@ export interface ParashaWeek {
 export function getListenAllUrl(readings: { torah: Reading, tanakh?: Reading, nt: Reading }): string {
   const parts = [readings.torah, readings.tanakh, readings.nt]
     .filter((r): r is Reading => !!r)
-    .map(r => {
-      // Extract book abbreviation and chapter from the individual URL if possible,
-      // or reconstruct it. Since we don't export the abbreviation map, we'll
-      // parse the audioUrl which we know is constructed as `.../niv/Abbr.Chapter`
-      if (r.audioUrl) {
-        const match = r.audioUrl.match(/\/niv\/([^/]+)$/)
-        if (match) return match[1]
-      }
-      return ''
+    .flatMap(r => {
+      // Extract book abbreviation from the individual URL if possible.
+      // We parse the audioUrl constructed as `.../niv/Abbr.Chapter`
+      if (!r.audioUrl) return []
+      
+      const match = r.audioUrl.match(/\/niv\/([^/]+)$/)
+      if (!match) return []
+      
+      const file = match[1] // e.g. "Lev.4,Lev.5"
+      // Since audioUrl is already comma-separated for multi-chapter readings (e.g. "Lev.4,Lev.5"),
+      // we can just return it directly.
+      return [file]
     })
     .filter(Boolean)
   

@@ -30,7 +30,51 @@ const BOOKS: Record<string, string> = {
   '2 John': '2 John', '3 John': '3 John', 'Jude': 'Jude', 'Revelation': 'Revelation'
 }
 
-function bgAudio(book: string, chapter: number): string {
+const SINGLE_CHAPTER_BOOKS = new Set([
+  'Obadiah', 'Philemon', 'Jude', '2 John', '3 John'
+])
+
+function getChapters(label: string, book: string, startChapter: number): number[] {
+  if (!label) return [startChapter]
+  if (SINGLE_CHAPTER_BOOKS.has(book)) return [startChapter]
+
+  const chapters = new Set<number>()
+
+  // Pattern 1: Colons indicate verses, so numbers preceding them are chapters
+  // e.g. "Gen 1:1-2:3" -> captures "1" and "2"
+  const colonMatches = label.matchAll(/(\d+):/g)
+  let foundColons = false
+  for (const match of colonMatches) {
+    foundColons = true
+    chapters.add(parseInt(match[1], 10))
+  }
+
+  if (foundColons) {
+    return Array.from(chapters).sort((a, b) => a - b)
+  }
+
+  // Pattern 2: Range of chapters (e.g. "Joshua 1-2")
+  // Extract the reference part (assumes it ends with numbers/dash)
+  const match = label.match(/(\d+[\d\-\s]*)$/)
+  if (match) {
+    const ref = match[1]
+    const rangeMatch = ref.match(/^(\d+)\s*-\s*(\d+)$/)
+    if (rangeMatch) {
+      const start = parseInt(rangeMatch[1], 10)
+      const end = parseInt(rangeMatch[2], 10)
+      // Sanity check: range shouldn't be too huge to avoid infinite loops on bad data
+      if (end >= start && end - start < 150) {
+        const result = []
+        for (let i = start; i <= end; i++) result.push(i)
+        return result
+      }
+    }
+  }
+
+  return [startChapter]
+}
+
+function bgAudio(book: string, startChapter: number, label: string): string {
   const slug = (book || '').toLowerCase().replace(/\s+/g, '-')
   // Check for abbreviations that need special handling
   let bookSlug = slug
@@ -57,7 +101,9 @@ function bgAudio(book: string, chapter: number): string {
   }
   
   const ab = abbr[bookSlug] || bookSlug
-  return `https://www.biblegateway.com/audio/purevoice/niv/${ab}.${chapter}`
+  const chapters = getChapters(label, book, startChapter)
+  
+  return `https://www.biblegateway.com/audio/purevoice/niv/${chapters.map(c => `${ab}.${c}`).join(',')}`
 }
 
 function parseBookChapter(raw: string): { label: string, book: string, chapter: number } | null {
@@ -180,26 +226,26 @@ function parseCSV() {
         label: "${torah?.label.replace(/"/g, '\\"')}", 
         book: "${torah?.book}", 
         chapter: ${torah?.chapter || 1}, 
-        audioUrl: "${bgAudio(torah?.book || '', torah?.chapter || 1)}" 
+        audioUrl: "${bgAudio(torah?.book || '', torah?.chapter || 1, torah?.label || '')}" 
       },
       ${haftarah && haftarah.book ? `tanakh: { 
         label: "${haftarah.label.replace(/"/g, '\\"')}", 
         book: "${haftarah.book}", 
         chapter: ${haftarah.chapter || 1}, 
-        audioUrl: "${bgAudio(haftarah.book, haftarah.chapter || 1)}" 
+        audioUrl: "${bgAudio(haftarah.book, haftarah.chapter || 1, haftarah.label)}" 
       },` : ''}
       nt: { 
         label: "${nt?.label.replace(/"/g, '\\"')}", 
         book: "${nt?.book}", 
         chapter: ${nt?.chapter || 1}, 
-        audioUrl: "${bgAudio(nt?.book || '', nt?.chapter || 1)}" 
+        audioUrl: "${bgAudio(nt?.book || '', nt?.chapter || 1, nt?.label || '')}" 
       },
     },
   }`
     dayStrings.push(dayObj)
   }
 
-  const output = `import { type DayReading } from './schedule'
+  const output = `import { type DayReading } from './types'
 
 export const schedule5786: DayReading[] = [
   ${dayStrings.join(',\n  ')}
