@@ -106,6 +106,12 @@ function bgAudio(book: string, startChapter: number, label: string): string {
   return `https://www.biblegateway.com/audio/purevoice/niv/${chapters.map(c => `${ab}.${c}`).join(',')}`
 }
 
+function countAudioTexts(url: string): number {
+  const match = url.match(/\/niv\/(.+)$/)
+  if (!match) return 0
+  return match[1].split(',').filter(s => /^[A-Za-z0-9]+\.\d+$/.test(s)).length
+}
+
 function parseBookChapter(raw: string): { label: string, book: string, chapter: number } | null {
   if (!raw || raw.trim() === '') return null
   
@@ -156,6 +162,24 @@ function parseDate(raw: string): string {
   return `${year}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`
 }
 
+function splitCsvLine(line: string): string[] {
+  const fields: string[] = []
+  let current = ''
+  let inQuotes = false
+  for (const char of line) {
+    if (char === '"') {
+      inQuotes = !inQuotes
+    } else if (char === ',' && !inQuotes) {
+      fields.push(current.trim())
+      current = ''
+    } else {
+      current += char
+    }
+  }
+  fields.push(current.trim())
+  return fields
+}
+
 function parseCSV() {
   const content = fs.readFileSync(CSV_PATH, 'utf-8')
   // Split lines, handle \r\n
@@ -166,8 +190,7 @@ function parseCSV() {
   let currentParashaName = ''
 
   for (const line of lines) {
-    // Simple CSV split (assumes no commas in quoted fields, which holds for this file)
-    const cols = line.split(',').map(s => s.trim())
+    const cols = splitCsvLine(line)
     
     // Column map based on header:
     // 0: Date, 1: TORAH, 2: HAFTARAH, 3: BESORA, ...
@@ -256,4 +279,131 @@ export const schedule5786: DayReading[] = [
   console.log(`Generated ${dayStrings.length} days to ${OUT_PATH}`)
 }
 
-parseCSV()
+/**
+ * Checks a single reading field (raw CSV value) for known data problems.
+ * Returns a list of human-readable issue descriptions.
+ */
+function checkField(raw: string, fieldName: string): string[] {
+  const issues: string[] = []
+  if (!raw) return issues
+
+  // Semicolon used in place of a colon in a chapter:verse reference (e.g. "9;24" → "9:24")
+  if (/\d+;\d+/.test(raw)) {
+    issues.push(`${fieldName}: semicolon instead of colon in "${raw}"`)
+  }
+
+  // Roman numeral book prefix (e.g. "I Samuel", "II Kings")
+  if (/\b(I{1,3}V?|IV|VI{0,3})\s+[A-Z]/.test(raw)) {
+    issues.push(`${fieldName}: Roman numeral book name in "${raw}" (use Arabic numerals, e.g. "1 Samuel")`)
+  }
+
+  return issues
+}
+
+/**
+ * Parses the CSV and prints each problematic row along with what it transforms to.
+ * Checks for: semicolon-as-colon typos, Roman numeral book names, and fewer than
+ * 3 valid audio texts across a day's readings (torah + tanakh + NT).
+ */
+function validate(): number {
+  const content = fs.readFileSync(CSV_PATH, 'utf-8')
+  const lines = content.replace(/\r\n/g, '\n').split('\n').slice(1)
+
+  let flaggedCount = 0
+  let currentParashaSlug = ''
+  let currentParashaName = ''
+
+  for (const line of lines) {
+    const cols = splitCsvLine(line)
+    if (cols.length < 4) continue
+
+    const dateStr = cols[0]
+    if (!dateStr || !dateStr.includes('-')) continue
+
+    const stripQuotes = (s: string) => s.replace(/^"|"$/g, '').trim()
+    const torahRaw = stripQuotes(cols[1] || '').replace(/MAF:/g, ';')
+    const haftarahRaw = stripQuotes(cols[2] || '')
+    const ntRaw = stripQuotes(cols[3] || '')
+
+    if (!torahRaw && !haftarahRaw && !ntRaw) continue
+
+    // Track parasha (mirrors parseCSV logic)
+    let torahLabel = torahRaw
+    let isParashaStart = false
+    if (torahRaw.includes(':')) {
+      const parts = torahRaw.split(':')
+      const candidateName = parts[0].trim()
+      if (candidateName === candidateName.toUpperCase() && candidateName.length > 2 && !candidateName.startsWith('GEN')) {
+        currentParashaName = candidateName
+          .toLowerCase()
+          .split('-')
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+          .join('-')
+        currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
+        torahLabel = parts.slice(1).join(':').trim()
+        isParashaStart = true
+      }
+    }
+
+    const date = parseDate(dateStr)
+    const issues: string[] = [
+      ...checkField(torahRaw, 'Torah'),
+      ...checkField(haftarahRaw, 'Tanakh'),
+      ...checkField(ntRaw, 'NT'),
+    ]
+
+    // Check that the combined audio URLs resolve to at least 3 book+chapter texts
+    const torah = parseBookChapter(torahLabel)
+    const haftarah = parseBookChapter(haftarahRaw)
+    const nt = parseBookChapter(ntRaw)
+    const torahUrl = bgAudio(torah?.book || '', torah?.chapter || 1, torah?.label || '')
+    const tanakhUrl = (haftarah && haftarah.book) ? bgAudio(haftarah.book, haftarah.chapter || 1, haftarah.label) : null
+    const ntUrl = bgAudio(nt?.book || '', nt?.chapter || 1, nt?.label || '')
+    const audioTextCount = countAudioTexts(torahUrl) + (tanakhUrl ? countAudioTexts(tanakhUrl) : 0) + countAudioTexts(ntUrl)
+    if (audioTextCount < 3) {
+      issues.push(`Only ${audioTextCount} valid audio text(s) across all readings (expected ≥ 3)`)
+    }
+
+    if (issues.length === 0) continue
+
+    flaggedCount++
+    console.log(`\n── ${date} (CSV row: ${dateStr}) ──`)
+    for (const issue of issues) {
+      console.log(`  ⚠️  ${issue}`)
+    }
+    console.log('  Raw fields:')
+    console.log(`    Torah:  ${cols[1] || '(empty)'}`)
+    console.log(`    Tanakh: ${cols[2] || '(empty)'}`)
+    console.log(`    NT:     ${cols[3] || '(empty)'}`)
+    const escapeSingle = (s: string) => s.replace(/'/g, "\\'")
+    console.log('  Would transform to:')
+    console.log(`    date: '${date}', parashaSlug: '${escapeSingle(currentParashaSlug)}'${isParashaStart ? `, torahPortion: '${escapeSingle(currentParashaName)}'` : ''}`)
+    console.log(`    torah:  { label: "${torah?.label}", book: "${torah?.book}", chapter: ${torah?.chapter ?? 1} }`)
+    console.log(`             audioUrl: "${torahUrl}"`)
+    if (tanakhUrl) {
+      console.log(`    tanakh: { label: "${haftarah!.label}", book: "${haftarah!.book}", chapter: ${haftarah!.chapter ?? 1} }`)
+      console.log(`             audioUrl: "${tanakhUrl}"`)
+    }
+    console.log(`    nt:     { label: "${nt?.label}", book: "${nt?.book}", chapter: ${nt?.chapter ?? 1} }`)
+    console.log(`             audioUrl: "${ntUrl}"`)
+  }
+
+  if (flaggedCount === 0) {
+    console.log('✅  No problems found.')
+  } else {
+    console.log(`\n${flaggedCount} row(s) flagged.`)
+  }
+  return flaggedCount
+}
+
+const action = process.argv[2]
+if (action === 'validate') {
+  validate()
+} else {
+  const problems = validate()
+  if (problems > 0) {
+    console.error('\n❌  Fix the problems above before generating.')
+    process.exit(1)
+  }
+  parseCSV()
+}

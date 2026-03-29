@@ -688,10 +688,10 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.24" 
       },
       tanakh: { 
-        label: "I Samuel 1-2", 
-        book: "I Samuel 1-2", 
+        label: "1 Sam 1-2", 
+        book: "1 Samuel", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/i-samuel-1-2.1,i-samuel-1-2.2" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Sam.1,1Sam.2" 
       },
       nt: { 
         label: "Matthew 24", 
@@ -1488,16 +1488,16 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.43,Gen.44" 
       },
       tanakh: { 
-        label: "Num. 7:42-47", 
+        label: "Num. 7:42-47, Isaiah 66:5-24", 
         book: "Num", 
         chapter: 7, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/num.7" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/num.7,num.66" 
       },
       nt: { 
-        label: "Isaiah 66:5-24", 
-        book: "Isaiah", 
-        chapter: 66, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.66" 
+        label: "Philippians 2:5-11", 
+        book: "Philippians", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Phil.2" 
       },
     },
   },
@@ -1938,16 +1938,16 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.5,Exod.6" 
       },
       tanakh: { 
-        label: "Isaiah 27:6-28:13", 
+        label: "Isaiah 27:6-28:13, 29:22-23", 
         book: "Isaiah", 
         chapter: 27, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.27,Isa.28" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.27,Isa.28,Isa.29" 
       },
       nt: { 
-        label: "29:22-23", 
-        book: "29:22-23", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/29:22-23.29" 
+        label: "Matthew 6:19-34", 
+        book: "Matthew", 
+        chapter: 6, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Matt.6" 
       },
     },
   },
@@ -1957,22 +1957,22 @@ export const schedule5786: DayReading[] = [
     torahPortion: 'Vaera',
     readings: {
       torah: { 
-        label: "Ex 6:2-6:13", 
+        label: "Ex 6:2-6:13, 6:14-6:28", 
         book: "Ex", 
         chapter: 6, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/ex.6" 
       },
       tanakh: { 
-        label: "6:14-6:28", 
-        book: "6:14-6:28", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/6:14-6:28.6" 
-      },
-      nt: { 
         label: "2 Kings 7-8", 
         book: "2 Kings", 
         chapter: 7, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/2Kgs.7,2Kgs.8" 
+      },
+      nt: { 
+        label: "Luke 22", 
+        book: "Luke", 
+        chapter: 22, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Luke.22" 
       },
     },
   },
@@ -2538,16 +2538,16 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.20" 
       },
       tanakh: { 
-        label: "Isaiah 6:1-7-6", 
+        label: "Isaiah 6:1-7-6, 9:5-6", 
         book: "Isaiah", 
         chapter: 6, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.6" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.6,Isa.9" 
       },
       nt: { 
-        label: "9:5-6", 
-        book: "9:5-6", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/9:5-6.9" 
+        label: "Matthew 11:2-19", 
+        book: "Matthew", 
+        chapter: 11, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Matt.11" 
       },
     },
   },
@@ -3888,10 +3888,10 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.11" 
       },
       tanakh: { 
-        label: "II Samuel 6:1-7:17", 
-        book: "II Samuel 6:1-7:17", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/ii-samuel-6:1-7:17.6,ii-samuel-6:1-7:17.7" 
+        label: "2 Sam 6:1-7:17", 
+        book: "2 Samuel", 
+        chapter: 6, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/2Sam.6,2Sam.7" 
       },
       nt: { 
         label: "Matthew 17:14-27", 
@@ -4044,10 +4044,10 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.66" 
       },
       nt: { 
-        label: "Matthew:1-18", 
-        book: "Matthew:1-18", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/matthew:1-18.1,matthew:1-18.2,matthew:1-18.3,matthew:1-18.4,matthew:1-18.5,matthew:1-18.6,matthew:1-18.7,matthew:1-18.8,matthew:1-18.9,matthew:1-18.10,matthew:1-18.11,matthew:1-18.12,matthew:1-18.13,matthew:1-18.14,matthew:1-18.15,matthew:1-18.16,matthew:1-18.17,matthew:1-18.18" 
+        label: "Matthew 18:1-18", 
+        book: "Matthew", 
+        chapter: 18, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Matt.18" 
       },
     },
   },
@@ -4188,16 +4188,16 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.20" 
       },
       tanakh: { 
-        label: "Amos 9:7-15", 
+        label: "Amos 9:7-15, Ezekiel 20:2-20", 
         book: "Amos", 
         chapter: 9, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.9" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.9,Amos.20" 
       },
       nt: { 
-        label: "Ezekiel 20:2-20", 
-        book: "Ezekiel", 
-        chapter: 20, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ezek.20" 
+        label: "Matthew 19:1-12", 
+        book: "Matthew", 
+        chapter: 19, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Matt.19" 
       },
     },
   },
@@ -4388,10 +4388,10 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.25" 
       },
       tanakh: { 
-        label: "II Samuel 22:1-51", 
-        book: "II Samuel 22:1-51", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/ii-samuel-22:1-51.22" 
+        label: "2 Sam 22:1-51", 
+        book: "2 Samuel", 
+        chapter: 22, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/2Sam.22" 
       },
       nt: { 
         label: "1 Corinthians 14", 
@@ -4638,10 +4638,10 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.4" 
       },
       tanakh: { 
-        label: "I Samuel 20:18-42", 
-        book: "I Samuel 20:18-42", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/i-samuel-20:18-42.20" 
+        label: "1 Sam 20:18-42", 
+        book: "1 Samuel", 
+        chapter: 20, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Sam.20" 
       },
       nt: { 
         label: "Mark 12:28-34", 
@@ -4882,22 +4882,22 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Numbers 7:1-41", 
+        label: "Numbers 7:1-41, (Shavuot 1 Ex 19:1-20:23)", 
         book: "Numbers", 
         chapter: 7, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.7" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.7,Num.19,Num.20" 
       },
       tanakh: { 
-        label: "(Shavuot 1 Ex 19:1-20:23)", 
-        book: "(Shavuot 1 Ex 19:1-20:23)", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/(shavuot-1-ex-19:1-20:23).19,(shavuot-1-ex-19:1-20:23).20" 
-      },
-      nt: { 
         label: "Ezekiel 4", 
         book: "Ezekiel", 
         chapter: 4, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ezek.4" 
+      },
+      nt: { 
+        label: "Galatians 2", 
+        book: "Galatians", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gal.2" 
       },
     },
   },
@@ -4907,17 +4907,22 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Numbers 7:42-71", 
+        label: "Numbers 7:42-71,", 
         book: "Numbers", 
         chapter: 7, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.7" 
       },
-      
-      nt: { 
+      tanakh: { 
         label: "Ezekiel 5", 
         book: "Ezekiel", 
         chapter: 5, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ezek.5" 
+      },
+      nt: { 
+        label: "Galatians 3", 
+        book: "Galatians", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gal.3" 
       },
     },
   },
@@ -5383,10 +5388,10 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.18" 
       },
       tanakh: { 
-        label: "I Samuel 11:14-12:22", 
-        book: "I Samuel 11:14-12:22", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/i-samuel-11:14-12:22.11,i-samuel-11:14-12:22.12" 
+        label: "1 Sam 11:14-12:22", 
+        book: "1 Samuel", 
+        chapter: 11, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Sam.11,1Sam.12" 
       },
       nt: { 
         label: "Mark 13:42-50", 
