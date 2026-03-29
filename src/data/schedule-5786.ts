@@ -3603,14 +3603,14 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-03-29',
-    parashaSlug: 'tzav',
-    
+    parashaSlug: 'pesach-shabbat-chol-ha-moed',
+    torahPortion: 'Pesach shabbat chol ha-Moed',
     readings: {
       torah: { 
-        label: "PESACH Shabbat Chol ha-Moed:  Ex.33:12-17", 
-        book: "PESACH Shabbat Chol ha-Moed:  Ex.33:12-17", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/pesach-shabbat-chol-ha-moed:-ex.33:12-17.33" 
+        label: "Exodus 33:12-17", 
+        book: "Exodus", 
+        chapter: 33, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.33" 
       },
       tanakh: { 
         label: "Jeremiah 13", 
@@ -3628,7 +3628,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-03-30',
-    parashaSlug: 'tzav',
+    parashaSlug: 'pesach-shabbat-chol-ha-moed',
     
     readings: {
       torah: { 
@@ -3653,7 +3653,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-03-31',
-    parashaSlug: 'tzav',
+    parashaSlug: 'pesach-shabbat-chol-ha-moed',
     
     readings: {
       torah: { 
@@ -3678,7 +3678,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-04-01',
-    parashaSlug: 'tzav',
+    parashaSlug: 'pesach-shabbat-chol-ha-moed',
     
     readings: {
       torah: { 
@@ -3703,7 +3703,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-04-02',
-    parashaSlug: 'tzav',
+    parashaSlug: 'pesach-shabbat-chol-ha-moed',
     
     readings: {
       torah: { 
@@ -3728,7 +3728,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-04-03',
-    parashaSlug: 'tzav',
+    parashaSlug: 'pesach-shabbat-chol-ha-moed',
     
     readings: {
       torah: { 
