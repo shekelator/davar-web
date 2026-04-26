@@ -145,9 +145,9 @@ export const schedule5786: DayReading[] = [
       },
       nt: { 
         label: "John1:1-18", 
-        book: "John1:1-18", 
+        book: "John", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/john1:1-18.1" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/John.1" 
       },
     },
   },
@@ -258,9 +258,9 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "Gen.9:18-10:32", 
-        book: "Gen.9:18-10:32", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/gen.9:18-10:32.9,gen.9:18-10:32.10" 
+        book: "Genesis", 
+        chapter: 9, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.9,Gen.10" 
       },
       tanakh: { 
         label: "Joshua 19-20", 
@@ -458,9 +458,9 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "Gen.18:1-14 & 18:15-18:33", 
-        book: "Gen.18:1-14 & 18:15-18:33", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/gen.18:1-14-&-18:15-18:33.18" 
+        book: "Genesis", 
+        chapter: 18, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.18" 
       },
       tanakh: { 
         label: "Judges 7-8", 
@@ -604,7 +604,7 @@ export const schedule5786: DayReading[] = [
   {
     date: '2025-11-09',
     parashaSlug: 'chayei-sara',
-    torahPortion: 'Chayei sara',
+    torahPortion: 'Chayei Sara',
     readings: {
       torah: { 
         label: "Gen. 23:1-24:9", 
@@ -958,9 +958,9 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "Gen.30:14-30:27", 
-        book: "Gen.30:14-30:27", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/gen.30:14-30:27.30" 
+        book: "Genesis", 
+        chapter: 30, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.30" 
       },
       tanakh: { 
         label: "1 Samuel 19-20", 
@@ -1489,9 +1489,9 @@ export const schedule5786: DayReading[] = [
       },
       tanakh: { 
         label: "Num. 7:42-47, Isaiah 66:5-24", 
-        book: "Num", 
+        book: "Numbers", 
         chapter: 7, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/num.7,num.66" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.7,Isa.66" 
       },
       nt: { 
         label: "Philippians 2:5-11", 
@@ -1503,14 +1503,14 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2025-12-21',
-    parashaSlug: 'miketz',
-    
+    parashaSlug: 'vayigash',
+    torahPortion: 'Vayigash',
     readings: {
       torah: { 
-        label: "VAYIGASH Gen 44:18-44:30&44:31-45:7", 
-        book: "VAYIGASH Gen 44:18-44:30&44:31-45:7", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/vayigash-gen-44:18-44:30&44:31-45:7.44,vayigash-gen-44:18-44:30&44:31-45:7.45" 
+        label: "Gen 44:18-44:30&44:31-45:7", 
+        book: "Genesis", 
+        chapter: 44, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.44,Gen.45" 
       },
       tanakh: { 
         label: "2 Samuel 23-24", 
@@ -1528,14 +1528,14 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2025-12-22',
-    parashaSlug: 'miketz',
+    parashaSlug: 'vayigash',
     
     readings: {
       torah: { 
         label: "Gen.45:8-18", 
-        book: "Gen.45:8-18", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/gen.45:8-18.45" 
+        book: "Genesis", 
+        chapter: 45, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.45" 
       },
       tanakh: { 
         label: "1 Kings 1-2", 
@@ -1553,7 +1553,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2025-12-23',
-    parashaSlug: 'miketz',
+    parashaSlug: 'vayigash',
     
     readings: {
       torah: { 
@@ -1578,7 +1578,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2025-12-24',
-    parashaSlug: 'miketz',
+    parashaSlug: 'vayigash',
     
     readings: {
       torah: { 
@@ -1603,7 +1603,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2025-12-25',
-    parashaSlug: 'miketz',
+    parashaSlug: 'vayigash',
     
     readings: {
       torah: { 
@@ -1628,7 +1628,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2025-12-26',
-    parashaSlug: 'miketz',
+    parashaSlug: 'vayigash',
     
     readings: {
       torah: { 
@@ -1808,9 +1808,9 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "EX 1:1-2:10", 
-        book: "EX", 
+        book: "Exodus", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/ex.1,ex.2" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.1,Exod.2" 
       },
       tanakh: { 
         label: "1 Kings 19-20", 
@@ -1958,9 +1958,9 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "Ex 6:2-6:13, 6:14-6:28", 
-        book: "Ex", 
+        book: "Exodus", 
         chapter: 6, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/ex.6" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.6" 
       },
       tanakh: { 
         label: "2 Kings 7-8", 
@@ -2103,8 +2103,8 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-01-18',
-    parashaSlug: 'vaera',
-    
+    parashaSlug: 'bo',
+    torahPortion: 'Bo',
     readings: {
       torah: { 
         label: "Exodus 10:1-23", 
@@ -2128,7 +2128,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-01-19',
-    parashaSlug: 'vaera',
+    parashaSlug: 'bo',
     
     readings: {
       torah: { 
@@ -2153,7 +2153,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-01-20',
-    parashaSlug: 'vaera',
+    parashaSlug: 'bo',
     
     readings: {
       torah: { 
@@ -2178,7 +2178,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-01-21',
-    parashaSlug: 'vaera',
+    parashaSlug: 'bo',
     
     readings: {
       torah: { 
@@ -2203,7 +2203,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-01-22',
-    parashaSlug: 'vaera',
+    parashaSlug: 'bo',
     
     readings: {
       torah: { 
@@ -2228,7 +2228,7 @@ export const schedule5786: DayReading[] = [
   },
   {
     date: '2026-01-23',
-    parashaSlug: 'vaera',
+    parashaSlug: 'bo',
     
     readings: {
       torah: { 
@@ -2758,9 +2758,9 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "Exodus: 26:15 - 26:30", 
-        book: "Exodus: 26:15 - 26:30", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/exodus:-26:15---26:30.26" 
+        book: "Exodus", 
+        chapter: 26, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.26" 
       },
       tanakh: { 
         label: "Isaiah 35-36", 
@@ -3004,7 +3004,7 @@ export const schedule5786: DayReading[] = [
   {
     date: '2026-03-01',
     parashaSlug: 'ki-tisa',
-    torahPortion: 'Ki tisa',
+    torahPortion: 'Ki Tisa',
     readings: {
       torah: { 
         label: "Exodus 30:11-33:11", 
@@ -3308,9 +3308,9 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "Lev. 1:1-2:6", 
-        book: "Lev", 
+        book: "Leviticus", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/lev.1,lev.2" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.1,Lev.2" 
       },
       tanakh: { 
         label: "Jeremiah 1", 
@@ -3604,7 +3604,7 @@ export const schedule5786: DayReading[] = [
   {
     date: '2026-03-29',
     parashaSlug: 'pesach-shabbat-chol-ha-moed',
-    torahPortion: 'Pesach shabbat chol ha-Moed',
+    torahPortion: 'Pesach Shabbat Chol Ha-Moed',
     readings: {
       torah: { 
         label: "Exodus 33:12-17", 
@@ -4191,7 +4191,7 @@ export const schedule5786: DayReading[] = [
         label: "Amos 9:7-15, Ezekiel 20:2-20", 
         book: "Amos", 
         chapter: 9, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.9,Amos.20" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.9,Ezek.20" 
       },
       nt: { 
         label: "Matthew 19:1-12", 
@@ -4954,7 +4954,7 @@ export const schedule5786: DayReading[] = [
   {
     date: '2026-05-31',
     parashaSlug: 'beha\'alotcha',
-    torahPortion: 'Beha\'alotcha',
+    torahPortion: 'Beha\'Alotcha',
     readings: {
       torah: { 
         label: "Numbers 8:1-26", 
@@ -5089,9 +5089,9 @@ export const schedule5786: DayReading[] = [
       },
       tanakh: { 
         label: "Zachariah 2:14-4:7", 
-        book: "Zachariah", 
+        book: "Zechariah", 
         chapter: 2, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/zachariah.2,zachariah.4" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Zech.2,Zech.4" 
       },
       nt: { 
         label: "Mark 14:1-11", 
@@ -5104,7 +5104,7 @@ export const schedule5786: DayReading[] = [
   {
     date: '2026-06-07',
     parashaSlug: 'sh\'lach',
-    torahPortion: 'Sh\'lach',
+    torahPortion: 'Sh\'Lach',
     readings: {
       torah: { 
         label: "Numbers 13:1-14:7", 

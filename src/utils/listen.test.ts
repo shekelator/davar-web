@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { getListenAllUrl, type Reading } from '../data/schedule'
+import { getReading } from './schedule'
 
 function r(book: string, chapter: number, url: string): Reading {
   return { label: `${book} ${chapter}`, book, chapter, audioUrl: url }
@@ -41,5 +42,32 @@ describe('getListenAllUrl', () => {
     const url = getListenAllUrl({ torah, nt })
     // Should NOT be .../Lev.4,Lev.4,Lev.4,Lev.5...
     expect(url).toBe('https://www.biblegateway.com/audio/purevoice/niv/Lev.4,Lev.5,Matt.16')
+  })
+
+  it('uses both haftarah passages for the 2026-04-24 listen-all url', () => {
+    const reading = getReading('2026-04-24')
+
+    expect(reading).not.toBeNull()
+    expect(getListenAllUrl(reading!.readings)).toBe(
+      'https://www.biblegateway.com/audio/purevoice/niv/Lev.20,Amos.9,Ezek.20,Matt.19',
+    )
+  })
+
+  it('normalizes abbreviated cross-book haftarah audio in generated schedule data', () => {
+    const reading = getReading('2025-12-19')
+
+    expect(reading).not.toBeNull()
+    expect(getListenAllUrl(reading!.readings)).toBe(
+      'https://www.biblegateway.com/audio/purevoice/niv/Gen.43,Gen.44,Num.7,Isa.66,Phil.2',
+    )
+  })
+
+  it('normalizes alternate book spellings and abbreviations in generated schedule data', () => {
+    const reading = getReading('2026-06-05')
+
+    expect(reading).not.toBeNull()
+    expect(getListenAllUrl(reading!.readings)).toBe(
+      'https://www.biblegateway.com/audio/purevoice/niv/Num.11,Num.12,Zech.2,Zech.4,Mark.14',
+    )
   })
 })

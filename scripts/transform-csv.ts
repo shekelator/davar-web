@@ -9,30 +9,255 @@ const __dirname = path.dirname(__filename)
 const CSV_PATH = path.resolve(__dirname, '../daily-davar-schedule-5786.csv')
 const OUT_PATH = path.resolve(__dirname, '../src/data/schedule-5786.ts')
 
-// Book name normalization map (CSV string -> BibleGateway slug-friendly name)
-const BOOKS: Record<string, string> = {
-  'Gen': 'Genesis', 'Exodus': 'Exodus', 'Leviticus': 'Leviticus', 'Numbers': 'Numbers', 'Deuteronomy': 'Deuteronomy',
-  'Joshua': 'Joshua', 'Judges': 'Judges', '1 Sam': '1 Samuel', '2 Sam': '2 Samuel',
-  '1 Kings': '1 Kings', '2 Kings': '2 Kings', 'Isaiah': 'Isaiah', 'Jeremiah': 'Jeremiah',
-  'Ezekiel': 'Ezekiel', 'Hosea': 'Hosea', 'Joel': 'Joel', 'Amos': 'Amos', 'Obadiah': 'Obadiah',
-  'Jonah': 'Jonah', 'Micah': 'Micah', 'Nahum': 'Nahum', 'Habakkuk': 'Habakkuk',
-  'Zephaniah': 'Zephaniah', 'Haggai': 'Haggai', 'Zechariah': 'Zechariah', 'Malachi': 'Malachi',
-  'Psalms': 'Psalms', 'Proverbs': 'Proverbs', 'Job': 'Job', 'Song': 'Song of Songs',
-  'Ruth': 'Ruth', 'Lamentations': 'Lamentations', 'Ecclesiastes': 'Ecclesiastes',
-  'Esther': 'Esther', 'Daniel': 'Daniel', 'Ezra': 'Ezra', 'Nehemiah': 'Nehemiah',
-  '1 Chron': '1 Chronicles', '2 Chron': '2 Chronicles',
-  'Matthew': 'Matthew', 'Mark': 'Mark', 'Luke': 'Luke', 'John': 'John', 'Acts': 'Acts',
-  'Romans': 'Romans', '1 Cor': '1 Corinthians', '2 Cor': '2 Corinthians', 'Galatians': 'Galatians',
-  'Ephesians': 'Ephesians', 'Philippians': 'Philippians', 'Colossians': 'Colossians',
-  '1 Thess': '1 Thessalonians', '2 Thess': '2 Thessalonians', '1 Tim': '1 Timothy',
-  '2 Tim': '2 Timothy', 'Titus': 'Titus', 'Philemon': 'Philemon', 'Hebrews': 'Hebrews',
-  'James': 'James', '1 Peter': '1 Peter', '2 Peter': '2 Peter', '1 John': '1 John',
-  '2 John': '2 John', '3 John': '3 John', 'Jude': 'Jude', 'Revelation': 'Revelation'
+const BOOK_NAMES: Record<string, string> = {
+  genesis: 'Genesis',
+  exodus: 'Exodus',
+  leviticus: 'Leviticus',
+  numbers: 'Numbers',
+  deuteronomy: 'Deuteronomy',
+  joshua: 'Joshua',
+  judges: 'Judges',
+  ruth: 'Ruth',
+  '1 samuel': '1 Samuel',
+  '2 samuel': '2 Samuel',
+  '1 kings': '1 Kings',
+  '2 kings': '2 Kings',
+  '1 chronicles': '1 Chronicles',
+  '2 chronicles': '2 Chronicles',
+  ezra: 'Ezra',
+  nehemiah: 'Nehemiah',
+  esther: 'Esther',
+  job: 'Job',
+  psalms: 'Psalms',
+  proverbs: 'Proverbs',
+  ecclesiastes: 'Ecclesiastes',
+  'song of songs': 'Song of Songs',
+  isaiah: 'Isaiah',
+  jeremiah: 'Jeremiah',
+  lamentations: 'Lamentations',
+  ezekiel: 'Ezekiel',
+  daniel: 'Daniel',
+  hosea: 'Hosea',
+  joel: 'Joel',
+  amos: 'Amos',
+  obadiah: 'Obadiah',
+  jonah: 'Jonah',
+  micah: 'Micah',
+  nahum: 'Nahum',
+  habakkuk: 'Habakkuk',
+  zephaniah: 'Zephaniah',
+  haggai: 'Haggai',
+  zechariah: 'Zechariah',
+  malachi: 'Malachi',
+  matthew: 'Matthew',
+  mark: 'Mark',
+  luke: 'Luke',
+  john: 'John',
+  acts: 'Acts',
+  romans: 'Romans',
+  '1 corinthians': '1 Corinthians',
+  '2 corinthians': '2 Corinthians',
+  galatians: 'Galatians',
+  ephesians: 'Ephesians',
+  philippians: 'Philippians',
+  colossians: 'Colossians',
+  '1 thessalonians': '1 Thessalonians',
+  '2 thessalonians': '2 Thessalonians',
+  '1 timothy': '1 Timothy',
+  '2 timothy': '2 Timothy',
+  titus: 'Titus',
+  philemon: 'Philemon',
+  hebrews: 'Hebrews',
+  james: 'James',
+  '1 peter': '1 Peter',
+  '2 peter': '2 Peter',
+  '1 john': '1 John',
+  '2 john': '2 John',
+  '3 john': '3 John',
+  jude: 'Jude',
+  revelation: 'Revelation',
+}
+
+const BOOK_ALIASES: Record<string, string> = {
+  ...BOOK_NAMES,
+  gen: 'Genesis',
+  ex: 'Exodus',
+  exod: 'Exodus',
+  lev: 'Leviticus',
+  num: 'Numbers',
+  deut: 'Deuteronomy',
+  josh: 'Joshua',
+  judg: 'Judges',
+  '1 sam': '1 Samuel',
+  '2 sam': '2 Samuel',
+  '1 chron': '1 Chronicles',
+  '2 chron': '2 Chronicles',
+  ps: 'Psalms',
+  prov: 'Proverbs',
+  song: 'Song of Songs',
+  isa: 'Isaiah',
+  jer: 'Jeremiah',
+  lam: 'Lamentations',
+  ezek: 'Ezekiel',
+  dan: 'Daniel',
+  hos: 'Hosea',
+  obad: 'Obadiah',
+  mic: 'Micah',
+  nah: 'Nahum',
+  hab: 'Habakkuk',
+  zeph: 'Zephaniah',
+  hag: 'Haggai',
+  zech: 'Zechariah',
+  zachariah: 'Zechariah',
+  matt: 'Matthew',
+  phil: 'Philippians',
+  jas: 'James',
+  '1 cor': '1 Corinthians',
+  '2 cor': '2 Corinthians',
+  '1 thess': '1 Thessalonians',
+  '2 thess': '2 Thessalonians',
+  '1 tim': '1 Timothy',
+  '2 tim': '2 Timothy',
+}
+
+const BIBLE_GATEWAY_ABBR: Record<string, string> = {
+  genesis: 'Gen',
+  exodus: 'Exod',
+  leviticus: 'Lev',
+  numbers: 'Num',
+  deuteronomy: 'Deut',
+  joshua: 'Josh',
+  judges: 'Judg',
+  ruth: 'Ruth',
+  '1-samuel': '1Sam',
+  '2-samuel': '2Sam',
+  '1-kings': '1Kgs',
+  '2-kings': '2Kgs',
+  '1-chronicles': '1Chr',
+  '2-chronicles': '2Chr',
+  ezra: 'Ezra',
+  nehemiah: 'Neh',
+  esther: 'Esth',
+  job: 'Job',
+  psalms: 'Ps',
+  proverbs: 'Prov',
+  ecclesiastes: 'Eccl',
+  'song-of-songs': 'Song',
+  isaiah: 'Isa',
+  jeremiah: 'Jer',
+  lamentations: 'Lam',
+  ezekiel: 'Ezek',
+  daniel: 'Dan',
+  hosea: 'Hos',
+  joel: 'Joel',
+  amos: 'Amos',
+  obadiah: 'Obad',
+  jonah: 'Jonah',
+  micah: 'Mic',
+  nahum: 'Nah',
+  habakkuk: 'Hab',
+  zephaniah: 'Zeph',
+  haggai: 'Hag',
+  zechariah: 'Zech',
+  malachi: 'Mal',
+  matthew: 'Matt',
+  mark: 'Mark',
+  luke: 'Luke',
+  john: 'John',
+  acts: 'Acts',
+  romans: 'Rom',
+  '1-corinthians': '1Cor',
+  '2-corinthians': '2Cor',
+  galatians: 'Gal',
+  ephesians: 'Eph',
+  philippians: 'Phil',
+  colossians: 'Col',
+  '1-thessalonians': '1Thess',
+  '2-thessalonians': '2Thess',
+  '1-timothy': '1Tim',
+  '2-timothy': '2Tim',
+  titus: 'Titus',
+  philemon: 'Phlm',
+  hebrews: 'Heb',
+  james: 'Jas',
+  '1-peter': '1Pet',
+  '2-peter': '2Pet',
+  '1-john': '1John',
+  '2-john': '2John',
+  '3-john': '3John',
+  jude: 'Jude',
+  revelation: 'Rev',
 }
 
 const SINGLE_CHAPTER_BOOKS = new Set([
   'Obadiah', 'Philemon', 'Jude', '2 John', '3 John'
 ])
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+const BOOK_PREFIXES = Object.entries(BOOK_ALIASES)
+  .sort(([left], [right]) => right.length - left.length)
+  .map(([alias, book]) => ({
+    book,
+    pattern: new RegExp(`^${escapeRegExp(alias).replace(/\\ /g, '\\s*')}\\.?\\s*:?\\s*(\\d+)`, 'i'),
+  }))
+
+function normalizeBookName(raw: string): string | null {
+  const key = raw.trim().replace(/\.$/, '').replace(/\s+/g, ' ').toLowerCase()
+  return BOOK_ALIASES[key] || null
+}
+
+function formatParashaName(raw: string): string {
+  return raw
+    .toLowerCase()
+    .replace(/\b\w/g, (letter) => letter.toUpperCase())
+}
+
+function extractParashaStart(raw: string): { name: string, label: string } | null {
+  const clean = raw.trim()
+
+  const explicitParasha = clean.match(/^([A-Z'-]+(?:\s+[A-Z'-]+)*)\s*:\s*(.+)$/)
+  if (explicitParasha && !normalizeBookName(explicitParasha[1])) {
+    return {
+      name: formatParashaName(explicitParasha[1]),
+      label: explicitParasha[2].trim(),
+    }
+  }
+
+  const implicitParasha = clean.match(/^([A-Z'-]+(?:\s+[A-Z'-]+)*)\s+(.+)$/)
+  if (implicitParasha && !normalizeBookName(implicitParasha[1]) && findBookChapterStart(implicitParasha[2])) {
+    return {
+      name: formatParashaName(implicitParasha[1]),
+      label: implicitParasha[2].trim(),
+    }
+  }
+
+  return null
+}
+
+function sanitizeReferenceLabel(raw: string): string {
+  let clean = raw.trim().replace(/^HAF[:.]?\s*/i, '').replace(/^HAF\s+/i, '').trim()
+
+  const parashaStart = extractParashaStart(clean)
+  if (parashaStart) {
+    clean = parashaStart.label
+  }
+
+  return clean
+}
+
+function findBookChapterStart(raw: string): { book: string, chapter: number } | null {
+  const clean = raw.trim()
+  for (const { book, pattern } of BOOK_PREFIXES) {
+    const match = clean.match(pattern)
+    if (match) {
+      return { book, chapter: parseInt(match[1], 10) }
+    }
+  }
+  return null
+}
 
 function getChapters(label: string, book: string, startChapter: number): number[] {
   if (!label) return [startChapter]
@@ -74,36 +299,49 @@ function getChapters(label: string, book: string, startChapter: number): number[
   return [startChapter]
 }
 
-function bgAudio(book: string, startChapter: number, label: string): string {
-  const slug = (book || '').toLowerCase().replace(/\s+/g, '-')
-  // Check for abbreviations that need special handling
-  let bookSlug = slug
-  if (slug === 'gen') bookSlug = 'genesis'
-  // Use purevoice/niv and simple dot format: Exod.6
-  // Map full book names to BibleGateway abbreviations
-  const abbr: Record<string, string> = {
-    'genesis': 'Gen', 'exodus': 'Exod', 'leviticus': 'Lev', 'numbers': 'Num', 'deuteronomy': 'Deut',
-    'joshua': 'Josh', 'judges': 'Judg', 'ruth': 'Ruth', '1-samuel': '1Sam', '2-samuel': '2Sam',
-    '1-kings': '1Kgs', '2-kings': '2Kgs', '1-chronicles': '1Chr', '2-chronicles': '2Chr',
-    'ezra': 'Ezra', 'nehemiah': 'Neh', 'esther': 'Esth', 'job': 'Job', 'psalms': 'Ps',
-    'proverbs': 'Prov', 'ecclesiastes': 'Eccl', 'song-of-songs': 'Song', 'isaiah': 'Isa',
-    'jeremiah': 'Jer', 'lamentations': 'Lam', 'ezekiel': 'Ezek', 'daniel': 'Dan',
-    'hosea': 'Hos', 'joel': 'Joel', 'amos': 'Amos', 'obadiah': 'Obad', 'jonah': 'Jonah',
-    'micah': 'Mic', 'nahum': 'Nah', 'habakkuk': 'Hab', 'zephaniah': 'Zeph', 'haggai': 'Hag',
-    'zechariah': 'Zech', 'malachi': 'Mal',
-    'matthew': 'Matt', 'mark': 'Mark', 'luke': 'Luke', 'john': 'John', 'acts': 'Acts',
-    'romans': 'Rom', '1-corinthians': '1Cor', '2-corinthians': '2Cor', 'galatians': 'Gal',
-    'ephesians': 'Eph', 'philippians': 'Phil', 'colossians': 'Col',
-    '1-thessalonians': '1Thess', '2-thessalonians': '2Thess', '1-timothy': '1Tim',
-    '2-timothy': '2Tim', 'titus': 'Titus', 'philemon': 'Phlm', 'hebrews': 'Heb',
-    'james': 'Jas', '1-peter': '1Pet', '2-peter': '2Pet', '1-john': '1John',
-    '2-john': '2John', '3-john': '3John', 'jude': 'Jude', 'revelation': 'Rev'
+function getBibleGatewayAbbreviation(book: string): string {
+  const normalizedBook = normalizeBookName(book) || book
+  const slug = normalizedBook.toLowerCase().replace(/\s+/g, '-')
+  return BIBLE_GATEWAY_ABBR[slug] || normalizedBook
+}
+
+export function getAudioReferences(book: string, startChapter: number, label: string): string[] {
+  const cleanLabel = sanitizeReferenceLabel(label)
+  const segments = cleanLabel.split(/\s*,\s*/).filter(Boolean)
+  const references: string[] = []
+  let currentBook = normalizeBookName(book) || book
+
+  for (const segment of segments.length > 0 ? segments : [cleanLabel]) {
+    const parsed = findBookChapterStart(segment)
+    let segmentBook = parsed?.book || currentBook
+    let segmentChapter = parsed?.chapter ?? startChapter
+
+    if (!parsed) {
+      const chapterMatch = segment.trim().match(/^(\d+)/)
+      if (chapterMatch) {
+        segmentChapter = parseInt(chapterMatch[1], 10)
+      }
+    }
+
+    segmentBook = normalizeBookName(segmentBook) || segmentBook
+    const abbr = getBibleGatewayAbbreviation(segmentBook)
+    const chapters = getChapters(segment, segmentBook, segmentChapter)
+
+    for (const chapter of chapters) {
+      const reference = `${abbr}.${chapter}`
+      if (!references.includes(reference)) {
+        references.push(reference)
+      }
+    }
+
+    currentBook = segmentBook
   }
-  
-  const ab = abbr[bookSlug] || bookSlug
-  const chapters = getChapters(label, book, startChapter)
-  
-  return `https://www.biblegateway.com/audio/purevoice/niv/${chapters.map(c => `${ab}.${c}`).join(',')}`
+
+  return references
+}
+
+export function bgAudio(book: string, startChapter: number, label: string): string {
+  return `https://www.biblegateway.com/audio/purevoice/niv/${getAudioReferences(book, startChapter, label).join(',')}`
 }
 
 function countAudioTexts(url: string): number {
@@ -112,44 +350,21 @@ function countAudioTexts(url: string): number {
   return match[1].split(',').filter(s => /^[A-Za-z0-9]+\.\d+$/.test(s)).length
 }
 
-function parseBookChapter(raw: string): { label: string, book: string, chapter: number } | null {
+export function parseBookChapter(raw: string): { label: string, book: string, chapter: number } | null {
   if (!raw || raw.trim() === '') return null
-  
-  // Clean up "HAF." prefix and "BERESHIT:" if passed directly
-  let clean = raw.replace(/^HAF[:.]?\s*/i, '').trim()
-  
-  // If it starts with a parasha name (uppercase + colon), strip it
-  if (clean.match(/^[A-Z-]+:\s/)) {
-    clean = clean.split(':').slice(1).join(':').trim()
+
+  const clean = sanitizeReferenceLabel(raw)
+  const parsed = findBookChapterStart(clean)
+
+  if (!parsed) {
+    return {
+      label: clean,
+      book: normalizeBookName(clean) || clean.replace(/\.$/, ''),
+      chapter: 1,
+    }
   }
 
-  // Match "Book Chapter:Verse" or "Book Chapter" or "1 Book Chapter"
-  // Regex: 
-  // 1. (?:(\d\s)?[A-Za-z.]+) -> optional number prefix + book name (e.g. "1 Kings", "Gen.")
-  // 2. \s+(\d+) -> space + chapter number
-  const match = clean.match(/^((?:\d\s)?[A-Za-z.]+)\.?\s+(\d+)/)
-  
-  if (!match) {
-    // Fallback: try to just get the book name if we can't parse chapter
-    // e.g. "Obadiah" (1 chapter book, rarely cited with chapter 1)
-    return { label: clean, book: clean.replace(/\.$/, ''), chapter: 1 }
-  }
-
-  let bookKey = match[1].replace(/\.$/, '') // remove trailing dot
-  
-  // Normalize book name
-  let book = BOOKS[bookKey]
-  if (!book) {
-    // Try fuzzy match or known variations
-    if (bookKey === 'Gen') book = 'Genesis'
-    if (bookKey === 'Lev') book = 'Leviticus'
-    if (bookKey === 'Deut') book = 'Deuteronomy'
-    else book = bookKey
-  }
-  
-  const chapter = parseInt(match[2], 10)
-
-  return { label: clean, book, chapter }
+  return { label: clean, book: parsed.book, chapter: parsed.chapter }
 }
 
 function parseDate(raw: string): string {
@@ -213,22 +428,12 @@ function parseCSV() {
     let torahLabel = torahRaw
     let isParashaStart = false
     
-    if (torahRaw.includes(':')) {
-      const parts = torahRaw.split(':')
-      const candidateName = parts[0].trim()
-      // Heuristic: Uppercase name, >3 chars (e.g. NOACH, LECH-LECHA)
-      // Check if it looks like a Parasha name
-      if (candidateName === candidateName.toUpperCase() && candidateName.length > 2 && !candidateName.startsWith('GEN')) {
-        currentParashaName = candidateName
-          .toLowerCase()
-          .split('-')
-          .map(w => w.charAt(0).toUpperCase() + w.slice(1)) // Title Case
-          .join('-')
-        
-        currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
-        torahLabel = parts.slice(1).join(':').trim()
-        isParashaStart = true
-      }
+    const parashaStart = extractParashaStart(torahRaw)
+    if (parashaStart) {
+      currentParashaName = parashaStart.name
+      currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
+      torahLabel = parashaStart.label
+      isParashaStart = true
     }
 
     const date = parseDate(dateStr)
@@ -330,19 +535,12 @@ function validate(): number {
     // Track parasha (mirrors parseCSV logic)
     let torahLabel = torahRaw
     let isParashaStart = false
-    if (torahRaw.includes(':')) {
-      const parts = torahRaw.split(':')
-      const candidateName = parts[0].trim()
-      if (candidateName === candidateName.toUpperCase() && candidateName.length > 2 && !candidateName.startsWith('GEN')) {
-        currentParashaName = candidateName
-          .toLowerCase()
-          .split('-')
-          .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-          .join('-')
-        currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
-        torahLabel = parts.slice(1).join(':').trim()
-        isParashaStart = true
-      }
+    const parashaStart = extractParashaStart(torahRaw)
+    if (parashaStart) {
+      currentParashaName = parashaStart.name
+      currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
+      torahLabel = parashaStart.label
+      isParashaStart = true
     }
 
     const date = parseDate(dateStr)
@@ -396,14 +594,20 @@ function validate(): number {
   return flaggedCount
 }
 
-const action = process.argv[2]
-if (action === 'validate') {
-  validate()
-} else {
-  const problems = validate()
-  if (problems > 0) {
-    console.error('\n❌  Fix the problems above before generating.')
-    process.exit(1)
+function main() {
+  const action = process.argv[2]
+  if (action === 'validate') {
+    validate()
+  } else {
+    const problems = validate()
+    if (problems > 0) {
+      console.error('\n❌  Fix the problems above before generating.')
+      process.exit(1)
+    }
+    parseCSV()
   }
-  parseCSV()
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  main()
 }
