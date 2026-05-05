@@ -20,8 +20,8 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
 
   return (
     <div className={`border-l-4 ${accentColor} pl-4 py-1`}>
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex items-start gap-3 min-w-0">
+      <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
+        <div className="flex items-start gap-3 min-w-0 flex-1">
           <span 
             className="w-16 text-right shrink-0 text-2xl font-bold text-stone-300 select-none leading-none pt-1" 
             style={{ fontFamily: '"Frank Ruhl Libre", serif' }}
@@ -29,7 +29,7 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
           >
             {hebrewLabel}
           </span>
-          <div className="min-w-[12rem]">
+          <div className="min-w-0">
             {title && (
               <span className="text-xs font-semibold tracking-widest uppercase text-stone-400">{title}</span>
             )}
@@ -48,7 +48,7 @@ export function ReadingSection({ title, subtitle, reading, accentColor = 'border
             </p>
           </div>
         </div>
-        <div className="flex gap-3 shrink-0 pt-1">
+        <div className="flex gap-3 shrink-0 pt-1 ml-auto">
           <ReadLink url={getReadUrl(reading)} />
           <CommentaryLink url={getCommentaryUrl(reading, type)} />
           {reading.audioUrl && (
