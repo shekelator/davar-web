@@ -57,11 +57,13 @@ export function DayCard({ day, prevLink, nextLink }: DayCardProps) {
           />
         )}
 
-        <ReadingSection
-          reading={day.readings.nt}
-          accentColor="border-emerald-400"
-          type="nt"
-        />
+        {day.readings.nt && (
+          <ReadingSection
+            reading={day.readings.nt}
+            accentColor="border-emerald-400"
+            type="nt"
+          />
+        )}
       </div>
     </article>
   )

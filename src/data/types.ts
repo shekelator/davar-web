@@ -15,7 +15,7 @@ export interface DayReading {
   readings: {
     torah: Reading
     tanakh?: Reading   // Haftarah reading (Prophets / Writings), set on Shabbat
-    nt: Reading
+    nt?: Reading
   }
 }
 

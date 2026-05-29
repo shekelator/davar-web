@@ -6,7 +6,7 @@ interface CopyReadingsButtonProps {
   readings: {
     torah: Reading
     tanakh?: Reading
-    nt: Reading
+    nt?: Reading
   }
   date: string
 }
@@ -19,7 +19,7 @@ export function CopyReadingsButton({ readings }: CopyReadingsButtonProps) {
     const parts = [
       readings.torah.label,
       readings.tanakh?.label,
-      readings.nt.label
+      readings.nt?.label
     ].filter(Boolean).join(', ')
     
     const url = `${APP_CONFIG.baseUrl}`

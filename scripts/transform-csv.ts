@@ -445,6 +445,13 @@ function parseCSV() {
     // We intentionally quote keys/values to produce valid JS/TS
     const escapeSingle = (s: string) => s.replace(/'/g, "\\'")
     
+    const ntBlock = (nt && nt.book) ? `nt: { 
+        label: "${nt.label.replace(/"/g, '\\"')}", 
+        book: "${nt.book}", 
+        chapter: ${nt.chapter || 1}, 
+        audioUrl: "${bgAudio(nt.book, nt.chapter || 1, nt.label)}" 
+      },` : ''
+
     const dayObj = `{
     date: '${date}',
     parashaSlug: '${escapeSingle(currentParashaSlug)}',
@@ -462,12 +469,7 @@ function parseCSV() {
         chapter: ${haftarah.chapter || 1}, 
         audioUrl: "${bgAudio(haftarah.book, haftarah.chapter || 1, haftarah.label)}" 
       },` : ''}
-      nt: { 
-        label: "${nt?.label.replace(/"/g, '\\"')}", 
-        book: "${nt?.book}", 
-        chapter: ${nt?.chapter || 1}, 
-        audioUrl: "${bgAudio(nt?.book || '', nt?.chapter || 1, nt?.label || '')}" 
-      },
+      ${ntBlock}
     },
   }`
     dayStrings.push(dayObj)
@@ -556,10 +558,11 @@ function validate(): number {
     const nt = parseBookChapter(ntRaw)
     const torahUrl = bgAudio(torah?.book || '', torah?.chapter || 1, torah?.label || '')
     const tanakhUrl = (haftarah && haftarah.book) ? bgAudio(haftarah.book, haftarah.chapter || 1, haftarah.label) : null
-    const ntUrl = bgAudio(nt?.book || '', nt?.chapter || 1, nt?.label || '')
-    const audioTextCount = countAudioTexts(torahUrl) + (tanakhUrl ? countAudioTexts(tanakhUrl) : 0) + countAudioTexts(ntUrl)
-    if (audioTextCount < 3) {
-      issues.push(`Only ${audioTextCount} valid audio text(s) across all readings (expected ≥ 3)`)
+    const ntUrl = (nt && nt.book) ? bgAudio(nt.book, nt.chapter || 1, nt.label) : null
+    const audioTextCount = countAudioTexts(torahUrl) + (tanakhUrl ? countAudioTexts(tanakhUrl) : 0) + (ntUrl ? countAudioTexts(ntUrl) : 0)
+    const expectedMinimum = 1 + (tanakhUrl ? 1 : 0) + (ntUrl ? 1 : 0)
+    if (audioTextCount < expectedMinimum) {
+      issues.push(`Only ${audioTextCount} valid audio text(s) across all readings (expected ≥ ${expectedMinimum})`)
     }
 
     if (issues.length === 0) continue
@@ -582,8 +585,10 @@ function validate(): number {
       console.log(`    tanakh: { label: "${haftarah!.label}", book: "${haftarah!.book}", chapter: ${haftarah!.chapter ?? 1} }`)
       console.log(`             audioUrl: "${tanakhUrl}"`)
     }
-    console.log(`    nt:     { label: "${nt?.label}", book: "${nt?.book}", chapter: ${nt?.chapter ?? 1} }`)
-    console.log(`             audioUrl: "${ntUrl}"`)
+    if (ntUrl) {
+      console.log(`    nt:     { label: "${nt?.label}", book: "${nt?.book}", chapter: ${nt?.chapter ?? 1} }`)
+      console.log(`             audioUrl: "${ntUrl}"`)
+    }
   }
 
   if (flaggedCount === 0) {

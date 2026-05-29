@@ -19,7 +19,7 @@ export * from './types'
  * Generates a "Listen to all" URL for a set of readings.
  * Example: https://www.biblegateway.com/audio/purevoice/niv/Exod.6,Ps.66,Luke.22
  */
-export function getListenAllUrl(readings: { torah: Reading, tanakh?: Reading, nt: Reading }): string {
+export function getListenAllUrl(readings: { torah: Reading, tanakh?: Reading, nt?: Reading }): string {
   const parts = [readings.torah, readings.tanakh, readings.nt]
     .filter((r): r is Reading => !!r)
     .flatMap(r => {
@@ -44,7 +44,7 @@ export function getListenAllUrl(readings: { torah: Reading, tanakh?: Reading, nt
  * Generates a "Read all" URL for a set of readings (TLV version).
  * Example: https://www.biblegateway.com/passage/?search=Exodus%2029%3A38-46%2C%20Psalm%20103%2C%20Acts%2011&version=TLV
  */
-export function getReadAllUrl(readings: { torah: Reading, tanakh?: Reading, nt: Reading }): string {
+export function getReadAllUrl(readings: { torah: Reading, tanakh?: Reading, nt?: Reading }): string {
   const parts = [readings.torah, readings.tanakh, readings.nt]
     .filter((r): r is Reading => !!r)
     .map(r => r.label)

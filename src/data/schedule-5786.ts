@@ -293,12 +293,7 @@ export const schedule5786: DayReading[] = [
         chapter: 44, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ezek.44" 
       },
-      nt: { 
-        label: "undefined", 
-        book: "undefined", 
-        chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/.1" 
-      },
+      
     },
   },
   {
@@ -807,10 +802,10 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Numbers 17:9-15 Note:Christian Bibles end at 7:13", 
+        label: "Numbers 17:9-15", 
         book: "Numbers", 
         chapter: 17, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.7,Num.17" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.17" 
       },
       tanakh: { 
         label: "Ezekiel 18", 

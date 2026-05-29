@@ -4,7 +4,7 @@ interface ReadAllButtonProps {
   readings: {
     torah: Reading
     tanakh?: Reading
-    nt: Reading
+    nt?: Reading
   }
 }
 

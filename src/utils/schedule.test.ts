@@ -4,16 +4,15 @@ import {
   getWeekReadings, getParashaWeek, getPrevNextWeeks, getParashaWeekForDate,
 } from '../utils/schedule'
 
-// Updated tests to reflect the 2025-2026 data in schedule-5786.ts
-// Bereshit starts Oct 12, 2025
+// Tests reflect the currently generated 5786 schedule.
+// Bamidbar starts on 2026-05-10 in the local CSV source.
 
 describe('getReading', () => {
   it('returns a reading for a known date', () => {
-    // Oct 12, 2025 is the start of Bereshit
-    const r = getReading('2025-10-12')
+    const r = getReading('2026-05-10')
     expect(r).not.toBeNull()
-    expect(r?.readings.torah.book).toBe('Genesis')
-    expect(r?.parashaSlug).toBe('bereshit')
+    expect(r?.readings.torah.book).toBe('Numbers')
+    expect(r?.parashaSlug).toBe('bamidbar')
   })
 
   it('returns null for an unknown date', () => {
@@ -23,9 +22,9 @@ describe('getReading', () => {
 
 describe('getParashaWeek', () => {
   it('returns week metadata for a known slug', () => {
-    const week = getParashaWeek('bereshit')
+    const week = getParashaWeek('bamidbar')
     expect(week).not.toBeNull()
-    expect(week?.name).toBe('Bereshit')
+    expect(week?.name).toBe('Bamidbar')
   })
 
   it('returns null for an unknown slug', () => {
@@ -35,30 +34,30 @@ describe('getParashaWeek', () => {
 
 describe('getWeekReadings', () => {
   it('returns all days for a week', () => {
-    const days = getWeekReadings('bereshit')
+    const days = getWeekReadings('bamidbar')
     // Sunday - Friday (6 days) as Saturday is empty in this dataset
     expect(days.length).toBeGreaterThan(0)
-    expect(days[0].date).toBe('2025-10-12')
+    expect(days[0].date).toBe('2026-05-10')
   })
 })
 
 describe('getPrevNextWeeks', () => {
   it('returns null prev for the first week', () => {
-    const { prev, next } = getPrevNextWeeks('bereshit')
+    const { prev, next } = getPrevNextWeeks('bamidbar')
     expect(prev).toBeNull()
-    expect(next?.slug).toBe('noach')
+    expect(next?.slug).toBe('shavuot')
   })
 
   it('returns correct prev/next for a middle week', () => {
-    const { prev, next } = getPrevNextWeeks('noach')
-    expect(prev?.slug).toBe('bereshit')
-    expect(next?.slug).toBe('lech-lecha')
+    const { prev, next } = getPrevNextWeeks('shavuot')
+    expect(prev?.slug).toBe('bamidbar')
+    expect(next?.slug).toBe('nasso')
   })
 })
 
 describe('getParashaWeekForDate', () => {
   it('finds the week for a date', () => {
-    expect(getParashaWeekForDate('2025-10-12')?.slug).toBe('bereshit')
+    expect(getParashaWeekForDate('2026-05-10')?.slug).toBe('bamidbar')
   })
 })
 

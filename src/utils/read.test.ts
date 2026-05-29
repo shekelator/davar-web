@@ -23,6 +23,14 @@ describe('getReadAllUrl', () => {
     const url = getReadAllUrl({ torah, nt })
     expect(url).toBe('https://www.biblegateway.com/passage/?search=Exodus%2029%3A38-46%2C%20Acts%2011&version=TLV')
   })
+
+  it('handles missing nt reading', () => {
+    const torah = r('Exodus 29:38-46')
+    const tanakh = r('Psalm 103')
+
+    const url = getReadAllUrl({ torah, tanakh })
+    expect(url).toBe('https://www.biblegateway.com/passage/?search=Exodus%2029%3A38-46%2C%20Psalm%20103&version=TLV')
+  })
 })
 
 describe('getReadUrl', () => {
