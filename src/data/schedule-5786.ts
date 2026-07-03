@@ -1183,10 +1183,10 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.29,Num.30" 
       },
       tanakh: { 
-        label: ".Jeremiah 1:1-2:3", 
-        book: ".Jeremiah 1:1-2:3", 
+        label: "Jeremiah 1:1-2:3", 
+        book: "Jeremiah", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/.Jeremiah 1:1-2:3.1,.Jeremiah 1:1-2:3.2" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Jer.1,Jer.2" 
       },
       nt: { 
         label: "Matthew 24:27-32", 
