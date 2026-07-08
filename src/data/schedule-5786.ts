@@ -1183,10 +1183,10 @@ export const schedule5786: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.29,Num.30" 
       },
       tanakh: { 
-        label: "Jeremiah 1:1-2:3", 
-        book: "Jeremiah", 
+        label: ".Jeremiah 1:1-2:3", 
+        book: ".Jeremiah 1:1-2:3", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Jer.1,Jer.2" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/.Jeremiah 1:1-2:3.1,.Jeremiah 1:1-2:3.2" 
       },
       nt: { 
         label: "Matthew 24:27-32", 
@@ -1793,6 +1793,756 @@ export const schedule5786: DayReading[] = [
         book: "Luke", 
         chapter: 24, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Luke.24" 
+      },
+    },
+  },
+  {
+    date: '2026-08-02',
+    parashaSlug: 're\'eh',
+    torahPortion: 'Re\'Eh',
+    readings: {
+      torah: { 
+        label: "Deuteronomy 11:26-12:28", 
+        book: "Deuteronomy", 
+        chapter: 11, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.11,Deut.12" 
+      },
+      tanakh: { 
+        label: "Hosea 2", 
+        book: "Hosea", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.2" 
+      },
+      nt: { 
+        label: "Hebrews 5", 
+        book: "Hebrews", 
+        chapter: 5, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.5" 
+      },
+    },
+  },
+  {
+    date: '2026-08-03',
+    parashaSlug: 're\'eh',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 12:29-13:19", 
+        book: "Deuteronomy", 
+        chapter: 12, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.12,Deut.13" 
+      },
+      tanakh: { 
+        label: "Hosea 3", 
+        book: "Hosea", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.3" 
+      },
+      nt: { 
+        label: "Hebrews 6", 
+        book: "Hebrews", 
+        chapter: 6, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.6" 
+      },
+    },
+  },
+  {
+    date: '2026-08-04',
+    parashaSlug: 're\'eh',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 14:1-21", 
+        book: "Deuteronomy", 
+        chapter: 14, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.14" 
+      },
+      tanakh: { 
+        label: "Hosea 4", 
+        book: "Hosea", 
+        chapter: 4, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.4" 
+      },
+      nt: { 
+        label: "Hebrews 7", 
+        book: "Hebrews", 
+        chapter: 7, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.7" 
+      },
+    },
+  },
+  {
+    date: '2026-08-05',
+    parashaSlug: 're\'eh',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 14:22-29", 
+        book: "Deuteronomy", 
+        chapter: 14, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.14" 
+      },
+      tanakh: { 
+        label: "Hosea 5", 
+        book: "Hosea", 
+        chapter: 5, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.5" 
+      },
+      nt: { 
+        label: "Hebrews 8", 
+        book: "Hebrews", 
+        chapter: 8, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.8" 
+      },
+    },
+  },
+  {
+    date: '2026-08-06',
+    parashaSlug: 're\'eh',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 15:1-18", 
+        book: "Deuteronomy", 
+        chapter: 15, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.15" 
+      },
+      tanakh: { 
+        label: "Hosea 6", 
+        book: "Hosea", 
+        chapter: 6, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.6" 
+      },
+      nt: { 
+        label: "Hebrews 9", 
+        book: "Hebrews", 
+        chapter: 9, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.9" 
+      },
+    },
+  },
+  {
+    date: '2026-08-07',
+    parashaSlug: 're\'eh',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 15:19-16:17", 
+        book: "Deuteronomy", 
+        chapter: 15, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.15,Deut.16" 
+      },
+      tanakh: { 
+        label: "Isaiah 54:11-55:5", 
+        book: "Isaiah", 
+        chapter: 54, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.54,Isa.55" 
+      },
+      nt: { 
+        label: "Luke 24:33-49", 
+        book: "Luke", 
+        chapter: 24, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Luke.24" 
+      },
+    },
+  },
+  {
+    date: '2026-08-09',
+    parashaSlug: 'shoftim',
+    torahPortion: 'Shoftim',
+    readings: {
+      torah: { 
+        label: "Deuteronomy 16:18-17:20", 
+        book: "Deuteronomy", 
+        chapter: 16, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.16,Deut.17" 
+      },
+      tanakh: { 
+        label: "Hosea 7", 
+        book: "Hosea", 
+        chapter: 7, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.7" 
+      },
+      nt: { 
+        label: "Hebrews 10", 
+        book: "Hebrews", 
+        chapter: 10, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.10" 
+      },
+    },
+  },
+  {
+    date: '2026-08-10',
+    parashaSlug: 'shoftim',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 18:1-5", 
+        book: "Deuteronomy", 
+        chapter: 18, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.18" 
+      },
+      tanakh: { 
+        label: "Hosea 8", 
+        book: "Hosea", 
+        chapter: 8, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.8" 
+      },
+      nt: { 
+        label: "Hebrews 11", 
+        book: "Hebrews", 
+        chapter: 11, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.11" 
+      },
+    },
+  },
+  {
+    date: '2026-08-11',
+    parashaSlug: 'shoftim',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 18:6-13", 
+        book: "Deuteronomy", 
+        chapter: 18, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.18" 
+      },
+      tanakh: { 
+        label: "Hosea 9", 
+        book: "Hosea", 
+        chapter: 9, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.9" 
+      },
+      nt: { 
+        label: "Hebrews 12", 
+        book: "Hebrews", 
+        chapter: 12, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.12" 
+      },
+    },
+  },
+  {
+    date: '2026-08-12',
+    parashaSlug: 'shoftim',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 18:14-19:13", 
+        book: "Deuteronomy", 
+        chapter: 18, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.18,Deut.19" 
+      },
+      tanakh: { 
+        label: "Hosea 10", 
+        book: "Hosea", 
+        chapter: 10, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.10" 
+      },
+      nt: { 
+        label: "Hebrews 13", 
+        book: "Hebrews", 
+        chapter: 13, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Heb.13" 
+      },
+    },
+  },
+  {
+    date: '2026-08-13',
+    parashaSlug: 'shoftim',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 19:14-20:9", 
+        book: "Deuteronomy", 
+        chapter: 19, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.19,Deut.20" 
+      },
+      tanakh: { 
+        label: "Hosea 11", 
+        book: "Hosea", 
+        chapter: 11, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.11" 
+      },
+      nt: { 
+        label: "James 1", 
+        book: "James", 
+        chapter: 1, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Jas.1" 
+      },
+    },
+  },
+  {
+    date: '2026-08-14',
+    parashaSlug: 'shoftim',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 20:10-21:9", 
+        book: "Deuteronomy", 
+        chapter: 20, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.20,Deut.21" 
+      },
+      tanakh: { 
+        label: "Isaiah 51:12-52:12", 
+        book: "Isaiah", 
+        chapter: 51, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.51,Isa.52" 
+      },
+      nt: { 
+        label: "John 20:19-29", 
+        book: "John", 
+        chapter: 20, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/John.20" 
+      },
+    },
+  },
+  {
+    date: '2026-08-16',
+    parashaSlug: 'ki-teitzei',
+    torahPortion: 'Ki Teitzei',
+    readings: {
+      torah: { 
+        label: "Deuteronomy 21:10-22:7", 
+        book: "Deuteronomy", 
+        chapter: 21, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.21,Deut.22" 
+      },
+      tanakh: { 
+        label: "Hosea 12", 
+        book: "Hosea", 
+        chapter: 12, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.12" 
+      },
+      nt: { 
+        label: "James 2", 
+        book: "James", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Jas.2" 
+      },
+    },
+  },
+  {
+    date: '2026-08-17',
+    parashaSlug: 'ki-teitzei',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 22:8-23:7", 
+        book: "Deuteronomy", 
+        chapter: 22, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.22,Deut.23" 
+      },
+      tanakh: { 
+        label: "Hosea 13", 
+        book: "Hosea", 
+        chapter: 13, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.13" 
+      },
+      nt: { 
+        label: "James 3", 
+        book: "James", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Jas.3" 
+      },
+    },
+  },
+  {
+    date: '2026-08-18',
+    parashaSlug: 'ki-teitzei',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 23:8-23:24", 
+        book: "Deuteronomy", 
+        chapter: 23, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.23" 
+      },
+      tanakh: { 
+        label: "Hosea 14", 
+        book: "Hosea", 
+        chapter: 14, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Hos.14" 
+      },
+      nt: { 
+        label: "James 4", 
+        book: "James", 
+        chapter: 4, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Jas.4" 
+      },
+    },
+  },
+  {
+    date: '2026-08-19',
+    parashaSlug: 'ki-teitzei',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 23:25-24:4", 
+        book: "Deuteronomy", 
+        chapter: 23, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.23,Deut.24" 
+      },
+      tanakh: { 
+        label: "Joel 1", 
+        book: "Joel", 
+        chapter: 1, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Joel.1" 
+      },
+      nt: { 
+        label: "James 5", 
+        book: "James", 
+        chapter: 5, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Jas.5" 
+      },
+    },
+  },
+  {
+    date: '2026-08-20',
+    parashaSlug: 'ki-teitzei',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 24:5-24:13", 
+        book: "Deuteronomy", 
+        chapter: 24, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.24" 
+      },
+      tanakh: { 
+        label: "Joel 2", 
+        book: "Joel", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Joel.2" 
+      },
+      nt: { 
+        label: "1 Peter 1", 
+        book: "1 Peter", 
+        chapter: 1, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Pet.1" 
+      },
+    },
+  },
+  {
+    date: '2026-08-21',
+    parashaSlug: 'ki-teitzei',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 24:14-25:19", 
+        book: "Deuteronomy", 
+        chapter: 24, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.24,Deut.25" 
+      },
+      tanakh: { 
+        label: "Isaiah 54:1-10", 
+        book: "Isaiah", 
+        chapter: 54, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.54" 
+      },
+      nt: { 
+        label: "John 21:1-25", 
+        book: "John", 
+        chapter: 21, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/John.21" 
+      },
+    },
+  },
+  {
+    date: '2026-08-23',
+    parashaSlug: 'ki-tavo',
+    torahPortion: 'Ki Tavo',
+    readings: {
+      torah: { 
+        label: "Deuteronomy 26:1-15", 
+        book: "Deuteronomy", 
+        chapter: 26, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.26" 
+      },
+      tanakh: { 
+        label: "Joel 3", 
+        book: "Joel", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Joel.3" 
+      },
+      nt: { 
+        label: "1 Peter 2", 
+        book: "1 Peter", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Pet.2" 
+      },
+    },
+  },
+  {
+    date: '2026-08-24',
+    parashaSlug: 'ki-tavo',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 26:16-19", 
+        book: "Deuteronomy", 
+        chapter: 26, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.26" 
+      },
+      tanakh: { 
+        label: "Amos 1", 
+        book: "Amos", 
+        chapter: 1, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.1" 
+      },
+      nt: { 
+        label: "1 Peter 3", 
+        book: "1 Peter", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Pet.3" 
+      },
+    },
+  },
+  {
+    date: '2026-08-25',
+    parashaSlug: 'ki-tavo',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 27:1-10", 
+        book: "Deuteronomy", 
+        chapter: 27, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.27" 
+      },
+      tanakh: { 
+        label: "Amos 2", 
+        book: "Amos", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.2" 
+      },
+      nt: { 
+        label: "1 Peter 4", 
+        book: "1 Peter", 
+        chapter: 4, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Pet.4" 
+      },
+    },
+  },
+  {
+    date: '2026-08-26',
+    parashaSlug: 'ki-tavo',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 27:11-28:6", 
+        book: "Deuteronomy", 
+        chapter: 27, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.27,Deut.28" 
+      },
+      tanakh: { 
+        label: "Amos 3", 
+        book: "Amos", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.3" 
+      },
+      nt: { 
+        label: "1 Peter 5", 
+        book: "1 Peter", 
+        chapter: 5, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Pet.5" 
+      },
+    },
+  },
+  {
+    date: '2026-08-27',
+    parashaSlug: 'ki-tavo',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 28:7-28:69", 
+        book: "Deuteronomy", 
+        chapter: 28, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.28" 
+      },
+      tanakh: { 
+        label: "Amos 4", 
+        book: "Amos", 
+        chapter: 4, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.4" 
+      },
+      nt: { 
+        label: "2 Peter 1", 
+        book: "2 Peter", 
+        chapter: 1, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/2Pet.1" 
+      },
+    },
+  },
+  {
+    date: '2026-08-28',
+    parashaSlug: 'ki-tavo',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 29:1-8", 
+        book: "Deuteronomy", 
+        chapter: 29, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.29" 
+      },
+      tanakh: { 
+        label: "Isaiah 60:1-7", 
+        book: "Isaiah", 
+        chapter: 60, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.60" 
+      },
+      nt: { 
+        label: "1 Corinthians 15:1-11", 
+        book: "1 Corinthians", 
+        chapter: 15, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Cor.15" 
+      },
+    },
+  },
+  {
+    date: '2026-08-30',
+    parashaSlug: 'nitzavim-vayeilech',
+    torahPortion: 'Nitzavim-Vayeilech',
+    readings: {
+      torah: { 
+        label: "Deuteronomy 29:9-30:6", 
+        book: "Deuteronomy", 
+        chapter: 29, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.29,Deut.30" 
+      },
+      tanakh: { 
+        label: "Amos 5", 
+        book: "Amos", 
+        chapter: 5, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.5" 
+      },
+      nt: { 
+        label: "2 Peter 2", 
+        book: "2 Peter", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/2Pet.2" 
+      },
+    },
+  },
+  {
+    date: '2026-08-31',
+    parashaSlug: 'nitzavim-vayeilech',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 30:7-14", 
+        book: "Deuteronomy", 
+        chapter: 30, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.30" 
+      },
+      tanakh: { 
+        label: "Amos 6", 
+        book: "Amos", 
+        chapter: 6, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.6" 
+      },
+      nt: { 
+        label: "2 Peter 3", 
+        book: "2 Peter", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/2Pet.3" 
+      },
+    },
+  },
+  {
+    date: '2026-09-01',
+    parashaSlug: 'nitzavim-vayeilech',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 30:15-31:6", 
+        book: "Deuteronomy", 
+        chapter: 30, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.30,Deut.31" 
+      },
+      tanakh: { 
+        label: "Amos 7", 
+        book: "Amos", 
+        chapter: 7, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.7" 
+      },
+      nt: { 
+        label: "1 John 1", 
+        book: "1 John", 
+        chapter: 1, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1John.1" 
+      },
+    },
+  },
+  {
+    date: '2026-09-02',
+    parashaSlug: 'nitzavim-vayeilech',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 31:7-31:13", 
+        book: "Deuteronomy", 
+        chapter: 31, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.31" 
+      },
+      tanakh: { 
+        label: "Amos 8-9", 
+        book: "Amos", 
+        chapter: 8, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Amos.8,Amos.9" 
+      },
+      nt: { 
+        label: "1 John 2", 
+        book: "1 John", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1John.2" 
+      },
+    },
+  },
+  {
+    date: '2026-09-03',
+    parashaSlug: 'nitzavim-vayeilech',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 13:14-19", 
+        book: "Deuteronomy", 
+        chapter: 13, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.13" 
+      },
+      tanakh: { 
+        label: "Obadiah 1", 
+        book: "Obadiah", 
+        chapter: 1, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Obad.1" 
+      },
+      nt: { 
+        label: "1 John 3", 
+        book: "1 John", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1John.3" 
+      },
+    },
+  },
+  {
+    date: '2026-09-04',
+    parashaSlug: 'nitzavim-vayeilech',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 31:20-30", 
+        book: "Deuteronomy", 
+        chapter: 31, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.31" 
+      },
+      tanakh: { 
+        label: "Isaiah 61:10-62:12", 
+        book: "Isaiah", 
+        chapter: 61, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.61,Isa.62" 
+      },
+      nt: { 
+        label: "Matthew 28:16-20", 
+        book: "Matthew", 
+        chapter: 28, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Matt.28" 
       },
     },
   }

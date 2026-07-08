@@ -53,7 +53,7 @@ Date,TORAH,HAFTARAH/Prophets,BESORA,Day of Week,Month,Day
 6-30-26,Numbers 27:6-23,Ezekiel 27,1 Thessalonians 4,Tuesday,June,30
 7-1-26,Numbers 28:1-15,Ezekiel 28,1 Thessalonians 5,Wednesday,July,1
 7-2-26,Numbers 28:16-29:11,Ezekiel 29,2 Thessalonians 1,Thursday,July,2
-7-3-26,Numbers 29:12-30:1,HAF:Jeremiah 1:1-2:3,Matthew 24:27-32,Friday,July,3
+7-3-26,Numbers 29:12-30:1,HAF:.Jeremiah 1:1-2:3,Matthew 24:27-32,Friday,July,3
 7-4-26,,,,Saturday,July,4
 7-5-26,MATOT-MASEI: Numbers 30:2-31:54,Ezekiel 30,2 Thessalonians 2,Sunday,July,5
 7-6-26,Numbers 32:1-19,Ezekiel 31,2 Thessalonians 3,Monday,July,6
@@ -69,16 +69,52 @@ Date,TORAH,HAFTARAH/Prophets,BESORA,Day of Week,Month,Day
 7-16-26,Deuteronomy 2:31-3:14,Ezekiel 39,2 Timothy 2,Thursday,July,16
 7-17-26,Deuteronomy 3:15-22,HAF:Isaiah 1:1-27,Matthew 27:45-61,Friday,July,17
 7-18-26,,,,Saturday,July,18
-7-19-26,VAETCHANAN Deuteronomy 3:23-4:40,Ezekiel 40,2 Timothy 3,Sunday,July,19
+7-19-26,VAETCHANAN: Deuteronomy 3:23-4:40,Ezekiel 40,2 Timothy 3,Sunday,July,19
 7-20-26,Deuteronomy 4:41-49,Ezekiel 41,2 Timothy 4,Monday,July,20
 7-21-26,Deuteronomy 5:1-18,Ezekiel 42,Titus 1,Tuesday,July,21
 7-22-26,Deuteronomy 5:19-6:3,Ezekiel 43,Titus 2,Wednesday,July,22
 7-23-26,Deuteronomy 6:4-25,Ezekiel 44,Titus 3,Thursday,July,23
 7-24-26,Deuteronomy 7:1-11,HAF: Isaiah 40:1-26,Matthew 27:62-28:10,Friday,July,24
 7-25-26,,,,Saturday,July,25
-7-26-26,EIKEV Deuteronomy 7:12-9:3,Ezekiel 45,Philemon 1,Sunday,July,26
+7-26-26,EIKEV: Deuteronomy 7:12-9:3,Ezekiel 45,Philemon 1,Sunday,July,26
 7-27-26,Deuteronomy 9:4-29,Ezekiel 46,Hebrews 1,Monday,July,27
 7-28-26,Deuteronomy 10:1-11,Ezekiel 47,Hebrews 2,Tuesday,July,28
 7-29-26,Deuteronomy 10:12-11:9,Ezekiel 48,Hebrews 3,Wednesday,July,29
 7-30-26,Deuteronomy 11:10-21,Hosea 1,Hebrews 4,Thursday,July,30
 7-31-26,Deuteronomy 11:22-25,HAF: Isaiah 49:14-51:3,Luke 24:13-32,Friday,July,31
+8-1-26,,,,Saturday,August,1
+8-2-26,RE'EH: Deuteronomy 11:26-12:28,Hosea 2,Hebrews 5,Sunday,August,2
+8-3-26,Deuteronomy 12:29-13:19,Hosea 3,Hebrews 6,Monday,August,3
+8-4-26,Deuteronomy 14:1-21,Hosea 4,Hebrews 7,Tuesday,August,4
+8-5-26,Deuteronomy 14:22-29,Hosea 5,Hebrews 8,Wednesday,August,5
+8-6-26,Deuteronomy 15:1-18,Hosea 6,Hebrews 9,Thursday,August,6
+8-7-26,Deuteronomy 15:19-16:17,Isaiah 54:11-55:5,Luke 24:33-49,Friday,August,7
+8-8-26,,,,Saturday,August,8
+8-9-26,SHOFTIM: Deuteronomy 16:18-17:20,Hosea 7,Hebrews 10,Sunday,August,9
+8-10-26,Deuteronomy 18:1-5,Hosea 8,Hebrews 11,Monday,August,10
+8-11-26,Deuteronomy 18:6-13,Hosea 9,Hebrews 12,Tuesday,August,11
+8-12-26,Deuteronomy 18:14-19:13,Hosea 10,Hebrews 13,Wednesday,August,12
+8-13-26,Deuteronomy 19:14-20:9,Hosea 11,James 1,Thursday,August,13
+8-14-26,Deuteronomy 20:10-21:9,HAF:Isaiah 51:12-52:12,John 20:19-29,Friday,August,14
+8-15-26,,,,Saturday,August,15
+8-16-26,KI TEITZEI: Deuteronomy 21:10-22:7,Hosea 12,James 2,Sunday,August,16
+8-17-26, Deuteronomy 22:8-23:7,Hosea 13 ,James 3,Monday,August,17
+8-18-26,Deuteronomy 23:8-23:24,Hosea 14,James 4,Tuesday,August,18
+8-19-26,Deuteronomy 23:25-24:4,Joel 1,James 5,Wednesday,August,19
+8-20-26,Deuteronomy 24:5-24:13,Joel 2,1 Peter 1,Thursday,August,20
+8-21-26,Deuteronomy 24:14-25:19,HAF: Isaiah 54:1-10,John 21:1-25,Friday,August,21
+8-22-26,,,,Saturday,August,22
+8-23-26,KI TAVO: Deuteronomy 26:1-15,Joel 3,1 Peter 2,Sunday,August,23
+8-24-26, Deuteronomy 26:16-19,Amos 1,1 Peter 3,Monday,August,24
+8-25-26,Deuteronomy 27:1-10,Amos 2,1 Peter 4,Tuesday,August,25
+8-26-26,Deuteronomy 27:11-28:6,Amos 3,1 Peter 5,Wednesday,August,26
+8-27-26,Deuteronomy 28:7-28:69,Amos 4,2 Peter 1,Thursday,August,27
+8-28-26,Deuteronomy 29:1-8,HAF: Isaiah 60:1-7,1 Corinthians 15:1-11,Friday,August,28
+8-29-26,,,,Saturday,August,29
+8-30-26,NITZAVIM-VAYEILECH: Deuteronomy 29:9-30:6,Amos 5,2 Peter 2,Sunday,August,30
+8-31-26,Deuteronomy 30:7-14,Amos 6,2 Peter 3,Monday,August,31
+9-1-26,Deuteronomy 30:15-31:6,Amos 7,1 John 1,Tuesday,September,1
+9-2-26,Deuteronomy 31:7-31:13,Amos 8-9,1 John 2,Wednesday,September,2
+9-3-26,Deuteronomy 13:14-19,Obadiah 1,1 John 3,Thursday,September,3
+9-4-26,Deuteronomy 31:20-30,HAF: Isaiah 61:10-62:12,Matthew 28:16-20,Friday,September,4
+9-5-26,,,,Saturday,September,5
