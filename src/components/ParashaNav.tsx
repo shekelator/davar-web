@@ -26,7 +26,7 @@ export function ParashaNav({ current, prev, next }: ParashaNavProps) {
       </div>
 
       <h2 className="text-center font-semibold text-stone-800 text-base flex-1">
-        Parashat {current.name}
+        {current.name}
       </h2>
 
       <div className="w-28 flex justify-end">

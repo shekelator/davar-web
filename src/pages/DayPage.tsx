@@ -34,7 +34,7 @@ export function DayPage() {
                   to={`/parasha/${week.slug}`}
                   className="text-2xl font-semibold text-stone-800 hover:text-amber-700 transition-colors"
                 >
-                  Parashat {week.name}
+                  {week.name}
                 </Link>
                 <Link 
                   to={`/parasha/${week.slug}`}
@@ -67,7 +67,7 @@ export function DayPage() {
                   to={`/parasha/${nextWeekParasha.slug}`}
                   className="block text-xl font-bold text-stone-800 hover:text-amber-700 transition-colors mb-1"
                 >
-                  Parashat {nextWeekParasha.name}
+                  {nextWeekParasha.name}
                 </Link>
                 <p className="text-sm text-stone-500">
                   Week of {formatDate(nextReading!.date)}
