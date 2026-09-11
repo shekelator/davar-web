@@ -7,7 +7,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Bereshit',
     readings: {
       torah: { 
-        label: "Gen1:1-2:19", 
+        label: "Gen 1:1-2:19", 
         book: "Genesis", 
         chapter: 1, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.1,Gen.2" 
@@ -2863,10 +2863,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.27,Exod.28" 
       },
       tanakh: { 
-        label: "Psalm 96 & 97", 
+        label: "Psalm 96 - 97", 
         book: "Psalms", 
         chapter: 96, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.96" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.96,Ps.97" 
       },
       nt: { 
         label: "Acts 7", 
@@ -2888,10 +2888,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.28" 
       },
       tanakh: { 
-        label: "Psalm 98 & 99", 
+        label: "Psalm 98 - 99", 
         book: "Psalms", 
         chapter: 98, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.98" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.98,Ps.99" 
       },
       nt: { 
         label: "Acts 8", 
@@ -2913,10 +2913,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.29" 
       },
       tanakh: { 
-        label: "Psalm 100 & 101", 
+        label: "Psalm 100 - 101", 
         book: "Psalms", 
         chapter: 100, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.100" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.100,Ps.101" 
       },
       nt: { 
         label: "Acts 9", 
@@ -3163,10 +3163,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.35" 
       },
       tanakh: { 
-        label: "Psalm 104 & 105", 
+        label: "Psalm 104 - 105", 
         book: "Psalms", 
         chapter: 104, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.104" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.104,Ps.105" 
       },
       nt: { 
         label: "Acts 17", 
@@ -3238,10 +3238,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.36,Exod.37" 
       },
       tanakh: { 
-        label: "Psalm 108 & 109", 
+        label: "Psalm 108 - 109", 
         book: "Psalms", 
         chapter: 108, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.108" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.108,Ps.109" 
       },
       nt: { 
         label: "Acts 20", 
@@ -3288,7 +3288,7 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.19,Exod.38" 
       },
       tanakh: { 
-        label: "Ezek 36:16-38  Shabbat Parah", 
+        label: "Ezek 36:16-38", 
         book: "Ezekiel", 
         chapter: 36, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ezek.36" 
@@ -3313,10 +3313,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.38,Exod.39" 
       },
       tanakh: { 
-        label: "Psalm 111 & 112", 
+        label: "Psalm 111 - 112", 
         book: "Psalms", 
         chapter: 111, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.111" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.111,Ps.112" 
       },
       nt: { 
         label: "Acts 22", 
@@ -3338,10 +3338,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.39" 
       },
       tanakh: { 
-        label: "Psalm 113 & 114", 
+        label: "Psalm 113 - 114", 
         book: "Psalms", 
         chapter: 113, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.113" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.113,Ps.114" 
       },
       nt: { 
         label: "Acts 23", 
@@ -3363,10 +3363,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.39" 
       },
       tanakh: { 
-        label: "Psalm 115 & 116", 
+        label: "Psalm 115 - 116", 
         book: "Psalms", 
         chapter: 115, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.115" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.115,Ps.116" 
       },
       nt: { 
         label: "Acts 24", 
@@ -3388,10 +3388,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Exod.40" 
       },
       tanakh: { 
-        label: "Psalm 117 & 118", 
+        label: "Psalm 117 - 118", 
         book: "Psalms", 
         chapter: 117, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.117" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.117,Ps.118" 
       },
       nt: { 
         label: "Acts 25", 
@@ -3638,10 +3638,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.7" 
       },
       tanakh: { 
-        label: "Psalm 120 & 121", 
+        label: "Psalm 120 - 121", 
         book: "Psalms", 
         chapter: 120, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.120" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.120,Ps.121" 
       },
       nt: { 
         label: "Romans 5", 
@@ -3663,7 +3663,7 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.8" 
       },
       tanakh: { 
-        label: "Psalm 122 & 123 & 124", 
+        label: "Psalm 122 - 123 - 124", 
         book: "Psalms", 
         chapter: 122, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.122" 
@@ -3688,10 +3688,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.8" 
       },
       tanakh: { 
-        label: "Psalms 125 & 126", 
+        label: "Psalms 125 - 126", 
         book: "Psalms", 
         chapter: 125, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.125" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.125,Ps.126" 
       },
       nt: { 
         label: "Romans 7", 
@@ -3713,10 +3713,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.8" 
       },
       tanakh: { 
-        label: "Psalms 127 & 128", 
+        label: "Psalm 122 - 124", 
         book: "Psalms", 
-        chapter: 127, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.127" 
+        chapter: 122, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.122,Ps.123,Ps.124" 
       },
       nt: { 
         label: "Romans 8", 
@@ -3763,10 +3763,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.9" 
       },
       tanakh: { 
-        label: "Psalms 129 & 130", 
+        label: "Psalms 129 - 130", 
         book: "Psalms", 
         chapter: 129, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.129" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.129,Ps.130" 
       },
       nt: { 
         label: "Romans 9", 
@@ -3788,10 +3788,10 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.9,Lev.10" 
       },
       tanakh: { 
-        label: "Psalms 131 & 132", 
+        label: "Psalms 131 - 132", 
         book: "Psalms", 
         chapter: 131, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.131" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.131,Ps.132" 
       },
       nt: { 
         label: "Romans 10", 
@@ -3807,16 +3807,16 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Leviticus10:12-15", 
+        label: "Leviticus 10:12-15", 
         book: "Leviticus", 
         chapter: 10, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.10" 
       },
       tanakh: { 
-        label: "Psalms 133 & 134", 
+        label: "Psalms 133 - 134", 
         book: "Psalms", 
         chapter: 133, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.133" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.133,Ps.134" 
       },
       nt: { 
         label: "Romans 11", 
