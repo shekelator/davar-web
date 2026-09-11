@@ -157,10 +157,10 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Rosh HaShanah I: Genesis 21:1-7", 
-        book: "Rosh HaShanah I: Genesis 21:1-7", 
+        label: "Genesis 21:1-7", 
+        book: "Genesis", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rosh HaShanah I: Genesis 21:1-7.21" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Genesis 21:1-7.21" 
       },
       tanakh: { 
         label: "Jonah 1-2", 
@@ -307,10 +307,10 @@ export const schedule5786: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Rosh HaShanah II: Numbers 29:1-6", 
-        book: "Rosh HaShanah II: Numbers 29:1-6", 
+        label: "Numbers 29:1-6", 
+        book: "Numbers", 
         chapter: 1, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rosh HaShanah II: Numbers 29:1-6.29" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Numbers 29:1-6.29" 
       },
       tanakh: { 
         label: "Nahum  1- 3", 

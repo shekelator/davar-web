@@ -1,4 +1,5 @@
 import { schedule5786 } from './schedule-5786'
+import { schedule5787 } from './schedule-5787'
 
 /**
  * Reading schedule data.
@@ -79,6 +80,7 @@ export function getCommentaryUrl(reading: Reading, type: ReadingType): string {
 
 export const schedule: DayReading[] = [
   ...schedule5786,
+  ...schedule5787,
 ]
 
 // Extract unique weeks from the schedule

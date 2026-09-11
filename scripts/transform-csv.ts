@@ -6,8 +6,7 @@ import { fileURLToPath } from 'url'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
-const CSV_PATH = path.resolve(__dirname, '../daily-davar-schedule-5786.csv')
-const OUT_PATH = path.resolve(__dirname, '../src/data/schedule-5786.ts')
+const DEFAULT_CSV_FILENAME = 'daily-davar-schedule-5787.csv'
 
 const BOOK_NAMES: Record<string, string> = {
   genesis: 'Genesis',
@@ -92,6 +91,7 @@ const BOOK_ALIASES: Record<string, string> = {
   '2 sam': '2 Samuel',
   '1 chron': '1 Chronicles',
   '2 chron': '2 Chronicles',
+  psalm: 'Psalms',
   ps: 'Psalms',
   prov: 'Proverbs',
   song: 'Song of Songs',
@@ -367,14 +367,66 @@ export function parseBookChapter(raw: string): { label: string, book: string, ch
   return { label: clean, book: parsed.book, chapter: parsed.chapter }
 }
 
+export function isPassageReference(raw: string): boolean {
+  if (!raw || raw.trim() === '') return false
+
+  const clean = sanitizeReferenceLabel(raw)
+  if (!clean) return false
+
+  if (findBookChapterStart(clean)) return true
+
+  // If a value has no chapter/verse numbers, treat it as a note/label, not a reading reference.
+  return /\d/.test(clean)
+}
+
 function parseDate(raw: string): string {
-  const parts = raw.split('-')
+  const normalized = raw.trim().replace(/\//g, '-')
+  const parts = normalized.split('-')
   if (parts.length !== 3) return ''
-  const m = parseInt(parts[0], 10)
-  const d = parseInt(parts[1], 10)
+
+  // Accept both M-D-YY and YYYY-M-D formats.
+  if (parts[0].length === 4) {
+    const year = parseInt(parts[0], 10)
+    const month = parseInt(parts[1], 10)
+    const day = parseInt(parts[2], 10)
+    if (Number.isNaN(year) || Number.isNaN(month) || Number.isNaN(day)) return ''
+    return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+  }
+
+  const month = parseInt(parts[0], 10)
+  const day = parseInt(parts[1], 10)
   const y = parseInt(parts[2], 10)
+  if (Number.isNaN(month) || Number.isNaN(day) || Number.isNaN(y)) return ''
+
   const year = y < 100 ? 2000 + y : y // assume 20xx
-  return `${year}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`
+  return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+}
+
+function isDateLike(raw: string): boolean {
+  return /\d{1,4}[/-]\d{1,2}[/-]\d{1,4}/.test(raw)
+}
+
+function getDefaultOutPath(csvPath: string): string {
+  const filename = path.basename(csvPath)
+  const yearMatch = filename.match(/(\d{4})/)
+  const suffix = yearMatch ? `-${yearMatch[1]}` : ''
+  return path.resolve(__dirname, `../src/data/schedule${suffix}.ts`)
+}
+
+function getScheduleExportName(csvPath: string): string {
+  const filename = path.basename(csvPath)
+  const yearMatch = filename.match(/(\d{4})/)
+  return yearMatch ? `schedule${yearMatch[1]}` : 'scheduleData'
+}
+
+function resolveCliPath(maybePath: string): string {
+  return path.isAbsolute(maybePath)
+    ? maybePath
+    : path.resolve(__dirname, `../${maybePath}`)
+}
+
+function stripQuotes(value: string): string {
+  return value.replace(/^"|"$/g, '').trim()
 }
 
 function splitCsvLine(line: string): string[] {
@@ -395,10 +447,47 @@ function splitCsvLine(line: string): string[] {
   return fields
 }
 
-function parseCSV() {
-  const content = fs.readFileSync(CSV_PATH, 'utf-8')
+interface CsvColumnIndices {
+  date: number
+  parasha: number | null
+  torah: number
+  tanakh: number
+  nt: number
+}
+
+function findColumnIndex(headers: string[], patterns: RegExp[]): number {
+  return headers.findIndex((header) => patterns.some((pattern) => pattern.test(header)))
+}
+
+export function getCsvColumnIndices(headerLine: string): CsvColumnIndices {
+  const headers = splitCsvLine(headerLine)
+    .map((header) => stripQuotes(header).toLowerCase())
+
+  const dateIndex = findColumnIndex(headers, [/^date$/])
+  const torahIndex = findColumnIndex(headers, [/torah/])
+  const tanakhIndex = findColumnIndex(headers, [/haftarah/, /prophets/, /ketuvim/, /writings/, /tanakh/])
+  const ntIndex = findColumnIndex(headers, [/besora/, /^nt$/, /new testament/, /gospel/])
+
+  // New format: parasha is a dedicated column (position 1 in current sheets).
+  const explicitParashaIndex = findColumnIndex(headers, [/parasha/, /portion/])
+  const parashaIndex = explicitParashaIndex >= 0 ? explicitParashaIndex : 1
+
+  return {
+    date: dateIndex >= 0 ? dateIndex : 0,
+    parasha: parashaIndex,
+    torah: torahIndex >= 0 ? torahIndex : 2,
+    tanakh: tanakhIndex >= 0 ? tanakhIndex : 3,
+    nt: ntIndex >= 0 ? ntIndex : 4,
+  }
+}
+
+function parseCSV(csvPath: string, outPath: string) {
+  const content = fs.readFileSync(csvPath, 'utf-8')
   // Split lines, handle \r\n
-  const lines = content.replace(/\r\n/g, '\n').split('\n').slice(1) // skip header
+  const allLines = content.replace(/\r\n/g, '\n').split('\n')
+  const headerLine = allLines[0] || ''
+  const lines = allLines.slice(1)
+  const columns = getCsvColumnIndices(headerLine)
 
   const dayStrings: string[] = []
   let currentParashaSlug = ''
@@ -406,40 +495,43 @@ function parseCSV() {
 
   for (const line of lines) {
     const cols = splitCsvLine(line)
-    
-    // Column map based on header:
-    // 0: Date, 1: TORAH, 2: HAFTARAH, 3: BESORA, ...
-    if (cols.length < 4) continue 
 
-    const dateStr = cols[0]
+    const maxRequiredIndex = Math.max(columns.date, columns.torah, columns.tanakh, columns.nt)
+    if (cols.length <= maxRequiredIndex) continue
+
+    const dateStr = stripQuotes(cols[columns.date] || '')
     // Skip empty dates or malformed lines
-    if (!dateStr || !dateStr.includes('-')) continue 
+    if (!dateStr || !isDateLike(dateStr)) continue 
 
-    // Remove surrounding quotes if CSV parser left them
-    const stripQuotes = (s: string) => s.replace(/^"|"$/g, '').trim()
-    const torahRaw = stripQuotes(cols[1] || '').replace(/MAF:/g, ';')
-    const haftarahRaw = stripQuotes(cols[2] || '')
-    const ntRaw = stripQuotes(cols[3] || '')
+    const parashaRaw = stripQuotes(cols[columns.parasha] || '')
+    const torahRaw = stripQuotes(cols[columns.torah] || '').replace(/MAF:/g, ';')
+    const haftarahRaw = stripQuotes(cols[columns.tanakh] || '')
+    const ntRaw = stripQuotes(cols[columns.nt] || '')
 
-    // Skip Saturday rows (empty readings)
-    if (!torahRaw && !haftarahRaw && !ntRaw) continue
+    const hasTorahReference = isPassageReference(torahRaw)
+    const hasTanakhReference = isPassageReference(haftarahRaw)
+    const hasNtReference = isPassageReference(ntRaw)
 
-    // Detect Parasha change in TORAH column (e.g. "BERESHIT: Gen...")
+    // Skip rows with no reading passages (including note-only rows like "SHABBAT ZACHOR").
+    if (!hasTorahReference && !hasTanakhReference && !hasNtReference) continue
+
+    // Detect parasha changes from the dedicated parasha column.
     let torahLabel = torahRaw
     let isParashaStart = false
-    
-    const parashaStart = extractParashaStart(torahRaw)
-    if (parashaStart) {
-      currentParashaName = parashaStart.name
-      currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
-      torahLabel = parashaStart.label
-      isParashaStart = true
+
+    if (parashaRaw) {
+      const parsedParashaName = formatParashaName(parashaRaw)
+      if (parsedParashaName && parsedParashaName !== currentParashaName) {
+        currentParashaName = parsedParashaName
+        currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
+        isParashaStart = true
+      }
     }
 
     const date = parseDate(dateStr)
-    const torah = parseBookChapter(torahLabel)
-    const haftarah = parseBookChapter(haftarahRaw)
-    const nt = parseBookChapter(ntRaw)
+    const torah = hasTorahReference ? parseBookChapter(torahLabel) : null
+    const haftarah = hasTanakhReference ? parseBookChapter(haftarahRaw) : null
+    const nt = hasNtReference ? parseBookChapter(ntRaw) : null
 
     // Construct the object string for the TS file
     // We intentionally quote keys/values to produce valid JS/TS
@@ -475,15 +567,17 @@ function parseCSV() {
     dayStrings.push(dayObj)
   }
 
+  const exportName = getScheduleExportName(csvPath)
+
   const output = `import { type DayReading } from './types'
 
-export const schedule5786: DayReading[] = [
+export const ${exportName}: DayReading[] = [
   ${dayStrings.join(',\n  ')}
 ]
 `
 
-  fs.writeFileSync(OUT_PATH, output)
-  console.log(`Generated ${dayStrings.length} days to ${OUT_PATH}`)
+  fs.writeFileSync(outPath, output)
+  console.log(`Generated ${dayStrings.length} days to ${outPath}`)
 }
 
 /**
@@ -512,9 +606,12 @@ function checkField(raw: string, fieldName: string): string[] {
  * Checks for: semicolon-as-colon typos, Roman numeral book names, and fewer than
  * 3 valid audio texts across a day's readings (torah + tanakh + NT).
  */
-function validate(): number {
-  const content = fs.readFileSync(CSV_PATH, 'utf-8')
-  const lines = content.replace(/\r\n/g, '\n').split('\n').slice(1)
+function validate(csvPath: string): number {
+  const content = fs.readFileSync(csvPath, 'utf-8')
+  const allLines = content.replace(/\r\n/g, '\n').split('\n')
+  const headerLine = allLines[0] || ''
+  const lines = allLines.slice(1)
+  const columns = getCsvColumnIndices(headerLine)
 
   let flaggedCount = 0
   let currentParashaSlug = ''
@@ -522,40 +619,47 @@ function validate(): number {
 
   for (const line of lines) {
     const cols = splitCsvLine(line)
-    if (cols.length < 4) continue
+    const maxRequiredIndex = Math.max(columns.date, columns.torah, columns.tanakh, columns.nt)
+    if (cols.length <= maxRequiredIndex) continue
 
-    const dateStr = cols[0]
-    if (!dateStr || !dateStr.includes('-')) continue
+    const dateStr = stripQuotes(cols[columns.date] || '')
+    if (!dateStr || !isDateLike(dateStr)) continue
 
-    const stripQuotes = (s: string) => s.replace(/^"|"$/g, '').trim()
-    const torahRaw = stripQuotes(cols[1] || '').replace(/MAF:/g, ';')
-    const haftarahRaw = stripQuotes(cols[2] || '')
-    const ntRaw = stripQuotes(cols[3] || '')
+    const parashaRaw = stripQuotes(cols[columns.parasha] || '')
+    const torahRaw = stripQuotes(cols[columns.torah] || '').replace(/MAF:/g, ';')
+    const haftarahRaw = stripQuotes(cols[columns.tanakh] || '')
+    const ntRaw = stripQuotes(cols[columns.nt] || '')
 
-    if (!torahRaw && !haftarahRaw && !ntRaw) continue
+    const hasTorahReference = isPassageReference(torahRaw)
+    const hasTanakhReference = isPassageReference(haftarahRaw)
+    const hasNtReference = isPassageReference(ntRaw)
+
+    if (!hasTorahReference && !hasTanakhReference && !hasNtReference) continue
 
     // Track parasha (mirrors parseCSV logic)
     let torahLabel = torahRaw
     let isParashaStart = false
-    const parashaStart = extractParashaStart(torahRaw)
-    if (parashaStart) {
-      currentParashaName = parashaStart.name
-      currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
-      torahLabel = parashaStart.label
-      isParashaStart = true
+
+    if (parashaRaw) {
+      const parsedParashaName = formatParashaName(parashaRaw)
+      if (parsedParashaName && parsedParashaName !== currentParashaName) {
+        currentParashaName = parsedParashaName
+        currentParashaSlug = currentParashaName.toLowerCase().replace(/\s+/g, '-')
+        isParashaStart = true
+      }
     }
 
     const date = parseDate(dateStr)
     const issues: string[] = [
-      ...checkField(torahRaw, 'Torah'),
-      ...checkField(haftarahRaw, 'Tanakh'),
-      ...checkField(ntRaw, 'NT'),
+      ...(hasTorahReference ? checkField(torahRaw, 'Torah') : []),
+      ...(hasTanakhReference ? checkField(haftarahRaw, 'Tanakh') : []),
+      ...(hasNtReference ? checkField(ntRaw, 'NT') : []),
     ]
 
     // Check that the combined audio URLs resolve to at least 3 book+chapter texts
-    const torah = parseBookChapter(torahLabel)
-    const haftarah = parseBookChapter(haftarahRaw)
-    const nt = parseBookChapter(ntRaw)
+    const torah = hasTorahReference ? parseBookChapter(torahLabel) : null
+    const haftarah = hasTanakhReference ? parseBookChapter(haftarahRaw) : null
+    const nt = hasNtReference ? parseBookChapter(ntRaw) : null
     const torahUrl = bgAudio(torah?.book || '', torah?.chapter || 1, torah?.label || '')
     const tanakhUrl = (haftarah && haftarah.book) ? bgAudio(haftarah.book, haftarah.chapter || 1, haftarah.label) : null
     const ntUrl = (nt && nt.book) ? bgAudio(nt.book, nt.chapter || 1, nt.label) : null
@@ -573,9 +677,9 @@ function validate(): number {
       console.log(`  ⚠️  ${issue}`)
     }
     console.log('  Raw fields:')
-    console.log(`    Torah:  ${cols[1] || '(empty)'}`)
-    console.log(`    Tanakh: ${cols[2] || '(empty)'}`)
-    console.log(`    NT:     ${cols[3] || '(empty)'}`)
+    console.log(`    Torah:  ${cols[columns.torah] || '(empty)'}`)
+    console.log(`    Tanakh: ${cols[columns.tanakh] || '(empty)'}`)
+    console.log(`    NT:     ${cols[columns.nt] || '(empty)'}`)
     const escapeSingle = (s: string) => s.replace(/'/g, "\\'")
     console.log('  Would transform to:')
     console.log(`    date: '${date}', parashaSlug: '${escapeSingle(currentParashaSlug)}'${isParashaStart ? `, torahPortion: '${escapeSingle(currentParashaName)}'` : ''}`)
@@ -600,16 +704,21 @@ function validate(): number {
 }
 
 function main() {
-  const action = process.argv[2]
+  const args = process.argv.slice(2)
+  const action = (args[0] === 'validate' || args[0] === 'generate') ? args.shift() : 'generate'
+
+  const csvPath = resolveCliPath(args[0] || DEFAULT_CSV_FILENAME)
+  const outPath = resolveCliPath(args[1] || getDefaultOutPath(csvPath))
+
   if (action === 'validate') {
-    validate()
+    validate(csvPath)
   } else {
-    const problems = validate()
+    const problems = validate(csvPath)
     if (problems > 0) {
       console.error('\n❌  Fix the problems above before generating.')
       process.exit(1)
     }
-    parseCSV()
+    parseCSV(csvPath, outPath)
   }
 }
 
