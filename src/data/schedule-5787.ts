@@ -57,7 +57,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 3-22-4-18", 
+        label: "Gen 3:22-4-18", 
         book: "Genesis", 
         chapter: 3, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.3" 
@@ -1488,7 +1488,7 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.7" 
       },
       tanakh: { 
-        label: "1 KIngs 7:40-50", 
+        label: "1 Kings 7:40-50", 
         book: "1 Kings", 
         chapter: 7, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Kgs.7" 
@@ -2344,7 +2344,7 @@ export const schedule5787: DayReading[] = [
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Ps.79" 
       },
       nt: { 
-        label: "John11", 
+        label: "John 11", 
         book: "John", 
         chapter: 11, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/John.11" 

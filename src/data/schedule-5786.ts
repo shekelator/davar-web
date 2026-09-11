@@ -158,7 +158,7 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "Genesis 21:1-7", 
-        book: "Genesis 21:1-7", 
+        book: "Genesis", 
         chapter: 1, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Genesis 21:1-7.21" 
       },
@@ -308,7 +308,7 @@ export const schedule5786: DayReading[] = [
     readings: {
       torah: { 
         label: "Numbers 29:1-6", 
-        book: "Numbers 29:1-6", 
+        book: "Numbers", 
         chapter: 1, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Numbers 29:1-6.29" 
       },
