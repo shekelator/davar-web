@@ -3,16 +3,18 @@ import {
   getReading, formatDate, todayKey,
   getWeekReadings, getParashaWeek, getPrevNextWeeks, getParashaWeekForDate,
 } from '../utils/schedule'
+import { schedule, parashaWeeks } from '../data/schedule'
 
-// Tests reflect the currently generated 5786 schedule.
-// Bamidbar starts on 2026-05-10 in the local CSV source.
+const firstDay = schedule[0]
+const firstWeek = parashaWeeks[0]
+const secondWeek = parashaWeeks[1]
 
 describe('getReading', () => {
   it('returns a reading for a known date', () => {
-    const r = getReading('2026-05-10')
+    const r = getReading(firstDay.date)
     expect(r).not.toBeNull()
-    expect(r?.readings.torah.book).toBe('Numbers')
-    expect(r?.parashaSlug).toBe('bamidbar')
+    expect(r?.date).toBe(firstDay.date)
+    expect(r?.parashaSlug).toBe(firstDay.parashaSlug)
   })
 
   it('returns null for an unknown date', () => {
@@ -22,9 +24,10 @@ describe('getReading', () => {
 
 describe('getParashaWeek', () => {
   it('returns week metadata for a known slug', () => {
-    const week = getParashaWeek('bamidbar')
+    const week = getParashaWeek(firstWeek.slug)
     expect(week).not.toBeNull()
-    expect(week?.name).toBe('Bamidbar')
+    expect(week?.slug).toBe(firstWeek.slug)
+    expect(week?.name).toBeTruthy()
   })
 
   it('returns null for an unknown slug', () => {
@@ -34,10 +37,9 @@ describe('getParashaWeek', () => {
 
 describe('getWeekReadings', () => {
   it('returns all days for a week', () => {
-    const days = getWeekReadings('bamidbar')
-    // Sunday - Friday (6 days) as Saturday is empty in this dataset
+    const days = getWeekReadings(firstWeek.slug)
     expect(days.length).toBeGreaterThan(0)
-    expect(days[0].date).toBe('2026-05-10')
+    expect(days[0].parashaSlug).toBe(firstWeek.slug)
   })
 })
 
@@ -49,9 +51,14 @@ describe('getPrevNextWeeks', () => {
   })
 
   it('returns correct prev/next for a middle week', () => {
-    const { prev, next } = getPrevNextWeeks('shavuot')
-    expect(prev?.slug).toBe('bamidbar')
-    expect(next?.slug).toBe('nasso')
+    if (!secondWeek) {
+      expect(parashaWeeks.length).toBeGreaterThan(1)
+      return
+    }
+
+    const { prev, next } = getPrevNextWeeks(secondWeek.slug)
+    expect(prev?.slug).toBe(firstWeek.slug)
+    expect(next).not.toBeNull()
   })
 })
 

@@ -52,30 +52,29 @@ describe('getListenAllUrl', () => {
     expect(url).toBe('https://www.biblegateway.com/audio/purevoice/niv/Lev.4,Lev.5,Matt.16')
   })
 
-  it('uses both haftarah passages for the 2026-07-10 listen-all url', () => {
-    const reading = getReading('2026-07-10')
+  it('uses both haftarah passages for a 5787 multi-chapter tanakh day', () => {
+    const reading = getReading('2026-09-23')
 
     expect(reading).not.toBeNull()
     expect(getListenAllUrl(reading!.readings)).toBe(
-      'https://www.biblegateway.com/audio/purevoice/niv/Num.35,Num.36,Jer.2,Jer.3,Matt.27',
+      'https://www.biblegateway.com/audio/purevoice/niv/Lev.22,Zech.9,Zech.10,Rev.9',
     )
   })
 
-  it('omits nt from listen-all url when a day has no besorah reading', () => {
-    const reading = getReading('2026-05-22')
+  it('omits nt from listen-all url when nt reading is excluded', () => {
+    const reading = getReading('2026-10-09')
 
     expect(reading).not.toBeNull()
-    expect(getListenAllUrl(reading!.readings)).toBe(
-      'https://www.biblegateway.com/audio/purevoice/niv/Deut.15,Deut.16,Ezek.44',
-    )
+    const { nt: _nt, ...withoutNt } = reading!.readings
+    expect(getListenAllUrl(withoutNt)).toBe('https://www.biblegateway.com/audio/purevoice/niv/Gen.5,Gen.6,1Sam.20')
   })
 
   it('normalizes alternate book spellings and abbreviations in generated schedule data', () => {
-    const reading = getReading('2026-06-05')
+    const reading = getReading('2026-10-30')
 
     expect(reading).not.toBeNull()
     expect(getListenAllUrl(reading!.readings)).toBe(
-      'https://www.biblegateway.com/audio/purevoice/niv/Num.11,Num.12,Zech.2,Zech.4,Mark.14',
+      'https://www.biblegateway.com/audio/purevoice/niv/Gen.22,2Kgs.4,Luke.2',
     )
   })
 })

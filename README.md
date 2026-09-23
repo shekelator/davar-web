@@ -28,12 +28,12 @@ npm run lint      # ESLint
 
 The reading schedule is generated from a CSV file. To update the schedule:
 
-1.  Place the new CSV file in the project root: `daily-davar-schedule-5786.csv` (ensure filename matches script expectation).
+1.  Place the new CSV file in the project root: `daily-davar-schedule-5787.csv` (ensure filename matches script expectation).
 2.  Run the generation script:
     ```bash
     npm run generate
     ```
-3.  Commit the updated data file: `src/data/schedule-5786.ts`.
+3.  Commit the updated data file: `src/data/schedule-5787.ts`.
 
 ## Deployment
 

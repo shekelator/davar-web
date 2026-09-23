@@ -1,8 +1,18 @@
 import { describe, expect, it } from 'vitest'
 
-import { bgAudio, getAudioReferences, parseBookChapter } from './transform-csv'
+import { bgAudio, getAudioReferences, getCsvColumnIndices, isPassageReference, parseBookChapter } from './transform-csv'
 
 describe('transform-csv audio generation', () => {
+  it('maps 5787 layout with dedicated parasha column', () => {
+    expect(getCsvColumnIndices('Date,,TORAH,KETUVIM/Writings,BESORA,Day of Week,Month,Day,,,')).toEqual({
+      date: 0,
+      parasha: 1,
+      torah: 2,
+      tanakh: 3,
+      nt: 4,
+    })
+  })
+
   it('keeps cross-book haftarah references attached to the right books', () => {
     expect(bgAudio('Amos', 9, 'Amos 9:7-15, Ezekiel 20:2-20')).toBe(
       'https://www.biblegateway.com/audio/purevoice/niv/Amos.9,Ezek.20',
@@ -46,5 +56,19 @@ describe('transform-csv audio generation', () => {
       book: 'Zechariah',
       chapter: 2,
     })
+  })
+
+  it('normalizes singular Psalm references', () => {
+    expect(parseBookChapter('Psalm 38')).toEqual({
+      label: 'Psalm 38',
+      book: 'Psalms',
+      chapter: 38,
+    })
+  })
+
+  it('treats note-only labels as non-passage rows', () => {
+    expect(isPassageReference('SHABBAT ZACHOR')).toBe(false)
+    expect(isPassageReference('')).toBe(false)
+    expect(isPassageReference('Psalm 38')).toBe(true)
   })
 })
