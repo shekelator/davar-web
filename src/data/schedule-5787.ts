@@ -2,12 +2,237 @@ import { type DayReading } from './types'
 
 export const schedule5787: DayReading[] = [
   {
+    date: '2026-09-23',
+    parashaSlug: 'sukkot',
+    torahPortion: 'Sukkot',
+    readings: {
+      torah: { 
+        label: "Leviticus 22:1-16", 
+        book: "Leviticus", 
+        chapter: 22, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.22" 
+      },
+      tanakh: { 
+        label: "Zechariah 9-10", 
+        book: "Zechariah", 
+        chapter: 9, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Zech.9,Zech.10" 
+      },
+      nt: { 
+        label: "Revelation 9", 
+        book: "Revelation", 
+        chapter: 9, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rev.9" 
+      },
+    },
+  },
+  {
+    date: '2026-09-24',
+    parashaSlug: 'sukkot',
+    
+    readings: {
+      torah: { 
+        label: "Leviticus 22:17-33", 
+        book: "Leviticus", 
+        chapter: 22, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Lev.22" 
+      },
+      tanakh: { 
+        label: "Zechariah 11", 
+        book: "Zechariah", 
+        chapter: 11, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Zech.11" 
+      },
+      nt: { 
+        label: "Revelation 10", 
+        book: "Revelation", 
+        chapter: 10, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rev.10" 
+      },
+    },
+  },
+  {
+    date: '2026-09-25',
+    parashaSlug: 'sukkot',
+    
+    readings: {
+      torah: { 
+        label: "Numbers 29:12-16", 
+        book: "Numbers", 
+        chapter: 29, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.29" 
+      },
+      tanakh: { 
+        label: "Isaiah 57:14-58:14", 
+        book: "Isaiah", 
+        chapter: 57, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Isa.57,Isa.58" 
+      },
+      nt: { 
+        label: "1 Corinthians 15:1-11", 
+        book: "1 Corinthians", 
+        chapter: 15, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Cor.15" 
+      },
+    },
+  },
+  {
+    date: '2026-09-27',
+    parashaSlug: 'shemini-atzeret',
+    torahPortion: 'Shemini Atzeret',
+    readings: {
+      torah: { 
+        label: "Deuteronomy 14:22-29", 
+        book: "Deuteronomy", 
+        chapter: 14, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.14" 
+      },
+      tanakh: { 
+        label: "Zechariah 12", 
+        book: "Zechariah", 
+        chapter: 12, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Zech.12" 
+      },
+      nt: { 
+        label: "Revelation 11-12", 
+        book: "Revelation", 
+        chapter: 11, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rev.11,Rev.12" 
+      },
+    },
+  },
+  {
+    date: '2026-09-28',
+    parashaSlug: 'shemini-atzeret',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 15:1-18", 
+        book: "Deuteronomy", 
+        chapter: 15, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.15" 
+      },
+      tanakh: { 
+        label: "Zechariah 13-14", 
+        book: "Zechariah", 
+        chapter: 13, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Zech.13,Zech.14" 
+      },
+      nt: { 
+        label: "Revelation 13-14", 
+        book: "Revelation", 
+        chapter: 13, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rev.13,Rev.14" 
+      },
+    },
+  },
+  {
+    date: '2026-09-29',
+    parashaSlug: 'shemini-atzeret',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 15:19-23", 
+        book: "Deuteronomy", 
+        chapter: 15, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.15" 
+      },
+      tanakh: { 
+        label: "Malachi 1", 
+        book: "Malachi", 
+        chapter: 1, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Mal.1" 
+      },
+      nt: { 
+        label: "Revelation 15-16", 
+        book: "Revelation", 
+        chapter: 15, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rev.15,Rev.16" 
+      },
+    },
+  },
+  {
+    date: '2026-09-30',
+    parashaSlug: 'shemini-atzeret',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 16:-18", 
+        book: "Deuteronomy", 
+        chapter: 16, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.16" 
+      },
+      tanakh: { 
+        label: "Malachi 2", 
+        book: "Malachi", 
+        chapter: 2, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Mal.2" 
+      },
+      nt: { 
+        label: "Revelation 17-18", 
+        book: "Revelation", 
+        chapter: 17, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rev.17,Rev.18" 
+      },
+    },
+  },
+  {
+    date: '2026-10-01',
+    parashaSlug: 'shemini-atzeret',
+    
+    readings: {
+      torah: { 
+        label: "Deuteronomy 16:9-17", 
+        book: "Deuteronomy", 
+        chapter: 16, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Deut.16" 
+      },
+      tanakh: { 
+        label: "Malachi 3-4", 
+        book: "Malachi", 
+        chapter: 3, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Mal.3,Mal.4" 
+      },
+      nt: { 
+        label: "Revelation 19-21", 
+        book: "Revelation", 
+        chapter: 19, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Rev.19,Rev.20,Rev.21" 
+      },
+    },
+  },
+  {
+    date: '2026-10-02',
+    parashaSlug: 'shemini-atzeret',
+    
+    readings: {
+      torah: { 
+        label: "Numbers 29:35-30:1", 
+        book: "Numbers", 
+        chapter: 29, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Num.29,Num.30" 
+      },
+      tanakh: { 
+        label: "1 Kings 8:2-21", 
+        book: "1 Kings", 
+        chapter: 8, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/1Kgs.8" 
+      },
+      nt: { 
+        label: "Matthew 28:16-20", 
+        book: "Matthew", 
+        chapter: 28, 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Matt.28" 
+      },
+    },
+  },
+  {
     date: '2026-10-04',
     parashaSlug: 'bereshit',
     torahPortion: 'Bereshit',
     readings: {
       torah: { 
-        label: "Gen 1:1-2:19", 
+        label: "Genesis 1:1-2:19", 
         book: "Genesis", 
         chapter: 1, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.1,Gen.2" 
@@ -32,7 +257,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 2:20-3:21", 
+        label: "Genesis 2:20-3:21", 
         book: "Genesis", 
         chapter: 2, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.2,Gen.3" 
@@ -57,10 +282,10 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 3:22-4-18", 
+        label: "Genesis 3:22-4:18", 
         book: "Genesis", 
         chapter: 3, 
-        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.3" 
+        audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.3,Gen.4" 
       },
       tanakh: { 
         label: "Psalm 3", 
@@ -82,7 +307,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 4:19-4:22", 
+        label: "Genesis 4:19-4:22", 
         book: "Genesis", 
         chapter: 4, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.4" 
@@ -107,7 +332,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 4:23=5:24", 
+        label: "Genesis 4:23-5:24", 
         book: "Genesis", 
         chapter: 4, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.4,Gen.5" 
@@ -132,7 +357,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 5:25-6:8", 
+        label: "Genesis 5:25-6:8", 
         book: "Genesis", 
         chapter: 5, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.5,Gen.6" 
@@ -157,7 +382,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Noach',
     readings: {
       torah: { 
-        label: "Gen 6:9-7:16", 
+        label: "Genesis 6:9-7:16", 
         book: "Genesis", 
         chapter: 6, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.6,Gen.7" 
@@ -182,7 +407,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 7:17-8:14", 
+        label: "Genesis 7:17-8:14", 
         book: "Genesis", 
         chapter: 7, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.7,Gen.8" 
@@ -207,7 +432,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 8:15-9:7", 
+        label: "Genesis 8:15-9:7", 
         book: "Genesis", 
         chapter: 8, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.8,Gen.9" 
@@ -232,7 +457,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 9:8-9:17", 
+        label: "Genesis 9:8-9:17", 
         book: "Genesis", 
         chapter: 9, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.9" 
@@ -257,7 +482,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 9:18-10:32", 
+        label: "Genesis 9:18-10:32", 
         book: "Genesis", 
         chapter: 9, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.9,Gen.10" 
@@ -282,7 +507,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 11:1-11:32", 
+        label: "Genesis 11:1-11:32", 
         book: "Genesis", 
         chapter: 11, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.11" 
@@ -307,7 +532,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Lech Lecha',
     readings: {
       torah: { 
-        label: "Genesis 12:1-13:4", 
+        label: "Gen. 12:1-13:4", 
         book: "Genesis", 
         chapter: 12, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.12,Gen.13" 
@@ -332,7 +557,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 13:5-18", 
+        label: "Genesis 13:5-18", 
         book: "Genesis", 
         chapter: 13, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.13" 
@@ -357,7 +582,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 14:1-14:20", 
+        label: "Genesis 14:1-14:20", 
         book: "Genesis", 
         chapter: 14, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.14" 
@@ -382,7 +607,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 14:21-15:6", 
+        label: "Genesis 14:21-15:6", 
         book: "Genesis", 
         chapter: 14, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.14,Gen.15" 
@@ -407,7 +632,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 15:7-17:6", 
+        label: "Genesis 15:7-17:6", 
         book: "Genesis", 
         chapter: 15, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.15,Gen.17" 
@@ -432,7 +657,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 17:7-17:27", 
+        label: "Genesis 17:7-17:27", 
         book: "Genesis", 
         chapter: 17, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.17" 
@@ -457,7 +682,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Vayera',
     readings: {
       torah: { 
-        label: "Gen 18:1-33", 
+        label: "Genesis 18:1-33", 
         book: "Genesis", 
         chapter: 18, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.18" 
@@ -482,7 +707,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 19:1-20", 
+        label: "Genesis 19:1-20", 
         book: "Genesis", 
         chapter: 19, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.19" 
@@ -507,7 +732,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 19:21-21:4", 
+        label: "Genesis 19:21-21:4", 
         book: "Genesis", 
         chapter: 19, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.19,Gen.21" 
@@ -532,7 +757,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 21:5-21", 
+        label: "Genesis 21:5-21", 
         book: "Genesis", 
         chapter: 21, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.21" 
@@ -557,7 +782,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 21-22-34", 
+        label: "Genesis 21-22-34", 
         book: "Genesis", 
         chapter: 21, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.21" 
@@ -582,7 +807,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 22:1-24", 
+        label: "Genesis 22:1-24", 
         book: "Genesis", 
         chapter: 22, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.22" 
@@ -607,7 +832,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Chayei Sara',
     readings: {
       torah: { 
-        label: "Gen 23:1-24:9", 
+        label: "Genesis 23:1-24:9", 
         book: "Genesis", 
         chapter: 23, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.23,Gen.24" 
@@ -632,7 +857,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 24:10-26", 
+        label: "Genesis 24:10-26", 
         book: "Genesis", 
         chapter: 24, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.24" 
@@ -657,7 +882,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 24:27-52", 
+        label: "Genesis 24:27-52", 
         book: "Genesis", 
         chapter: 24, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.24" 
@@ -682,7 +907,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 24:53-67", 
+        label: "Genesis 24:53-67", 
         book: "Genesis", 
         chapter: 24, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.24" 
@@ -707,7 +932,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 25:1-11", 
+        label: "Genesis 25:1-11", 
         book: "Genesis", 
         chapter: 25, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.25" 
@@ -732,7 +957,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 25:12-18", 
+        label: "Genesis 25:12-18", 
         book: "Genesis", 
         chapter: 25, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.25" 
@@ -757,7 +982,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Toldot',
     readings: {
       torah: { 
-        label: "Gen 25:19-26:12", 
+        label: "Genesis 25:19-26:12", 
         book: "Genesis", 
         chapter: 25, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.25,Gen.26" 
@@ -782,7 +1007,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 26:13-22", 
+        label: "Genesis 26:13-22", 
         book: "Genesis", 
         chapter: 26, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.26" 
@@ -807,7 +1032,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 26:23-29", 
+        label: "Genesis 26:23-29", 
         book: "Genesis", 
         chapter: 26, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.26" 
@@ -832,7 +1057,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 26:30-27:27", 
+        label: "Genesis 26:30-27:27", 
         book: "Genesis", 
         chapter: 26, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.26,Gen.27" 
@@ -857,7 +1082,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 27:28-28:4", 
+        label: "Genesis 27:28-28:4", 
         book: "Genesis", 
         chapter: 27, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.27,Gen.28" 
@@ -882,7 +1107,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 28:5-9", 
+        label: "Genesis 28:5-9", 
         book: "Genesis", 
         chapter: 28, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.28" 
@@ -907,7 +1132,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Vayetzei',
     readings: {
       torah: { 
-        label: "Gen 28:10-29:17", 
+        label: "Genesis 28:10-29:17", 
         book: "Genesis", 
         chapter: 28, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.28,Gen.29" 
@@ -932,7 +1157,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 29:18-30:13", 
+        label: "Genesis 29:18-30:13", 
         book: "Genesis", 
         chapter: 29, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.29,Gen.30" 
@@ -957,7 +1182,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 30:14-27", 
+        label: "Genesis 30:14-27", 
         book: "Genesis", 
         chapter: 30, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.30" 
@@ -982,7 +1207,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 30:28-31:16", 
+        label: "Genesis 30:28-31:16", 
         book: "Genesis", 
         chapter: 30, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.30,Gen.31" 
@@ -1007,7 +1232,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 31:17-31:42", 
+        label: "Genesis 31:17-31:42", 
         book: "Genesis", 
         chapter: 31, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.31" 
@@ -1032,7 +1257,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 31:43-32:3", 
+        label: "Genesis 31:43-32:3", 
         book: "Genesis", 
         chapter: 31, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.31,Gen.32" 
@@ -1057,7 +1282,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Vayishlach',
     readings: {
       torah: { 
-        label: "Gen 32:4-30", 
+        label: "Genesis 32:4-30", 
         book: "Genesis", 
         chapter: 32, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.32" 
@@ -1082,7 +1307,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 32:31-33:5", 
+        label: "Genesis 32:31-33:5", 
         book: "Genesis", 
         chapter: 32, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.32,Gen.33" 
@@ -1107,7 +1332,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 33:6-20", 
+        label: "Genesis 33:6-20", 
         book: "Genesis", 
         chapter: 33, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.33" 
@@ -1132,7 +1357,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 34:1-35:11", 
+        label: "Genesis 34:1-35:11", 
         book: "Genesis", 
         chapter: 34, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.34,Gen.35" 
@@ -1157,7 +1382,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 35:12-36:19", 
+        label: "Genesis 35:12-36:19", 
         book: "Genesis", 
         chapter: 35, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.35,Gen.36" 
@@ -1182,7 +1407,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 36:20-36:43", 
+        label: "Genesis 36:20-36:43", 
         book: "Genesis", 
         chapter: 36, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.36" 
@@ -1207,7 +1432,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Vayeshev',
     readings: {
       torah: { 
-        label: "Gen 37:1-22", 
+        label: "Genesis 37:1-22", 
         book: "Genesis", 
         chapter: 37, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.37" 
@@ -1232,7 +1457,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 37:23-36", 
+        label: "Genesis 37:23-36", 
         book: "Genesis", 
         chapter: 37, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.37" 
@@ -1257,7 +1482,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 38:1-30", 
+        label: "Genesis 38:1-30", 
         book: "Genesis", 
         chapter: 38, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.38" 
@@ -1282,7 +1507,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 39:1-6", 
+        label: "Genesis 39:1-6", 
         book: "Genesis", 
         chapter: 39, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.39" 
@@ -1307,7 +1532,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 39:7-23", 
+        label: "Genesis 39:7-23", 
         book: "Genesis", 
         chapter: 39, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.39" 
@@ -1332,7 +1557,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 40:1-23", 
+        label: "Genesis 40:1-23", 
         book: "Genesis", 
         chapter: 40, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.40" 
@@ -1357,7 +1582,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Mikketz',
     readings: {
       torah: { 
-        label: "Gen 41:1-38", 
+        label: "Genesis 41:1-38", 
         book: "Genesis", 
         chapter: 41, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.41" 
@@ -1382,7 +1607,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 41:39-52", 
+        label: "Genesis 41:39-52", 
         book: "Genesis", 
         chapter: 41, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.41" 
@@ -1407,7 +1632,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 41:53-42:18", 
+        label: "Genesis 41:53-42:18", 
         book: "Genesis", 
         chapter: 41, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.41,Gen.42" 
@@ -1432,7 +1657,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 42:19-43:15", 
+        label: "Genesis 42:19-43:15", 
         book: "Genesis", 
         chapter: 42, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.42,Gen.43" 
@@ -1457,7 +1682,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 43:16-44:17", 
+        label: "Genesis 43:16-44:17", 
         book: "Genesis", 
         chapter: 43, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.43,Gen.44" 
@@ -1507,7 +1732,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Vayigash',
     readings: {
       torah: { 
-        label: "Gen 44:18-45:7", 
+        label: "Genesis 44:18-45:7", 
         book: "Genesis", 
         chapter: 44, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.44,Gen.45" 
@@ -1532,7 +1757,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 45:8-18", 
+        label: "Genesis 45:8-18", 
         book: "Genesis", 
         chapter: 45, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.45" 
@@ -1557,7 +1782,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 45:19-27", 
+        label: "Genesis 45:19-27", 
         book: "Genesis", 
         chapter: 45, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.45" 
@@ -1582,7 +1807,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 45:28-46:27", 
+        label: "Genesis 45:28-46:27", 
         book: "Genesis", 
         chapter: 45, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.45,Gen.46" 
@@ -1607,7 +1832,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 46:28-47:10", 
+        label: "Genesis 46:28-47:10", 
         book: "Genesis", 
         chapter: 46, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.46,Gen.47" 
@@ -1632,7 +1857,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 47:11-27", 
+        label: "Genesis 47:11-27", 
         book: "Genesis", 
         chapter: 47, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.47" 
@@ -1657,7 +1882,7 @@ export const schedule5787: DayReading[] = [
     torahPortion: 'Vayechi',
     readings: {
       torah: { 
-        label: "Gen 47:28-48:16", 
+        label: "Genesis 47:28-48:16", 
         book: "Genesis", 
         chapter: 47, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.47,Gen.48" 
@@ -1682,7 +1907,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 48:17-48:22", 
+        label: "Genesis 48:17-48:22", 
         book: "Genesis", 
         chapter: 48, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.48" 
@@ -1707,7 +1932,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 49:1-18", 
+        label: "Genesis 49:1-18", 
         book: "Genesis", 
         chapter: 49, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.49" 
@@ -1732,7 +1957,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 49:19-26", 
+        label: "Genesis 49:19-26", 
         book: "Genesis", 
         chapter: 49, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.49" 
@@ -1757,7 +1982,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 49:27-50:20", 
+        label: "Genesis 49:27-50:20", 
         book: "Genesis", 
         chapter: 49, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.49,Gen.50" 
@@ -1782,7 +2007,7 @@ export const schedule5787: DayReading[] = [
     
     readings: {
       torah: { 
-        label: "Gen 50:21-26", 
+        label: "Genesis 50:21-26", 
         book: "Genesis", 
         chapter: 50, 
         audioUrl: "https://www.biblegateway.com/audio/purevoice/niv/Gen.50" 
